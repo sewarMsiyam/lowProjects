@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/css/output.css" rel="stylesheet">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <header x-data="{ mobileMenuOpen: false }" class=" w-full">
+    <div class="bg-primaryDark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-white py-3  border-b-[1px] border-[rgba(204,204,204,0.3)]"">
+          <div class=" flex flex-wrap justify-between items-center text-sm">
+          <div class="flex items-center space-x-1">
+            <svg class="w-4 h-4 mr-1 " viewBox="0 0 20 20">
+              <path class="fill-accent"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z">
+              </path>
+            </svg>
+            <span class="hidden sm:flex items-center font-medium text-sm ">
+              LLC 155 N Wacker Drive Suite 4250 Chicago, IL 60606
+            </span>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a href="mailto:info@elbaheshlawfirm.com"
+              class="flex items-center hover:text-gray-300 transition duration-150">
+              <svg class="w-4 h-4 mr-1" viewBox="0 0 20 20">
+                <path class="fill-accent" d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                </path>
+                <path class="fill-accent" d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+              <span class="hidden md:flex items-center font-medium text-sm">
+                info@elbaheshlawfirm.com
+              </span>
+            </a>
+            <a href="tel:(312) 803-3665" class="flex items-center hover:text-gray-300 transition duration-150">
+              <svg class="w-4 h-4 mr-1" viewBox="0 0 20 20">
+                <path class="fill-accent"
+                  d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                </path>
+              </svg>
+              <span class="hidden sm:flex items-center font-medium text-sm">(312) 803-3665</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="py-1">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-6">
+            <a href="index.html">
+              <img src="assets/images/logo.svg" alt="" class="">
+            </a>
+            <div class="hidden md:flex w-[1px] bg-[#ccc] h-10"></div>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="text-neutralDark hover:text-primary transition duration-150">Home</a>
+            <a href="index.html" class="text-neutralDark hover:text-primary transition duration-150">About us</a>
+            <div x-data="{ open: false }" class="relative">
+              <button @click="open = !open"
+                class=" flex items-center text-neutralDark hover:text-primary transition duration-150">
+                Services
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div x-show="open" @click.away="open = false"
+                class="absolute z-50 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+                <a href="#" class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150">Area
+                  1</a>
+                <a href="#" class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150">Area
+                  2</a>
+                <a href="#" class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150">Area
+                  3</a>
+              </div>
+            </div>
+            <a href="#" class="text-neutralDark hover:text-primary transition duration-150">Blog</a>
+            <a href="#" class="text-neutralDark hover:text-primary transition duration-150">Contact us</a>
+          </div>
+
+
+          <div class="hidden md:flex items-center space-x-6">
+            <div class="hidden md:flex w-[1px] bg-[#ccc] h-10"></div>
+            <button class="text-white hover:text-gray-300 transition duration-150">
+              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 21.9592C17.2467 21.9592 21.5 17.7059 21.5 12.4592C21.5 7.21252 17.2467 2.95923 12 2.95923C6.75329 2.95923 2.5 7.21252 2.5 12.4592C2.5 17.7059 6.75329 21.9592 12 21.9592Z"
+                  stroke="#192644" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="stroke-primaryDark" d="M22.5 22.9592L20.5 20.9592" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button class="bg-primaryDark text-white px-8 py-3 rounded-full hover:bg-primary transition duration-150">
+              Schedule Consultation
+            </button>
+          </div>
+
+          <button @click="mobileMenuOpen = true" class="md:hidden text-primaryDark">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div x-show="mobileMenuOpen" class="fixed top-0 right-0 bottom-0 w-[300px] bg-white z-40 md:hidden"
+          x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full"
+          x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+
+          <div class="flex justify-between items-center p-4 pb-0">
+            <button @click="mobileMenuOpen = false" class="text-primaryDark hover:text-gray-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+
+          <div class="py-8 px-8">
+            <a href="index.html" class="w-full text-center">
+              <img src="assets/images/logo.svg" alt="" class="">
+            </a>
+
+            <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Home</a>
+            <div x-data="{ open: false }">
+              <button @click="open = !open"
+                class="w-full flex justify-between items-center py-2 text-neutralDark hover:text-primary transition duration-150">
+                Practice Areas
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 transform -translate-y-2"
+                x-transition:enter-end="opacity-100 transform translate-y-0" class="pl-4">
+                <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 1</a>
+                <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 2</a>
+                <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 3</a>
+              </div>
+            </div>
+            <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">About</a>
+            <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Contact us</a>
+            <button
+              class="bg-primaryDark text-white w-full px-8 py-3 rounded-full hover:bg-primary transition duration-150">
+              Schedule Consultation
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="relative h-screen w-full">
+      <div class="absolute inset-0 w-full h-full">
+        <div class="absolute inset-0 z-10"
+          style="background: linear-gradient(181.72deg, rgba(25, 38, 68, 0.36) 37.29%, rgba(25, 38, 68, 0.9) 98.54%);">
+        </div>
+        <img src="assets/images/hero.png" alt="Business meeting" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 md:px-8">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+            Guiding You Through Your<br>
+            Immigration Journey With Confidence
+          </h1>
+
+          <p class="text-lg md:text-xl text-white/90 mb-8">
+            We're dedicated to helping make your American dream a reality
+          </p>
+
+          <button class="bg-transparent hover:bg-white hover:text-gray-900 text-white 
+            font-semibold py-3 px-8 border-2 border-white rounded-full 
+            transition-all duration-300">
+            Schedule Consultation
+          </button>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="mt-20">
+      <div class="container">
+        <div class="grid grid-col-1 lg:grid-cols-2 gap-4">
+          <div>
+            <div class="absolute left-0 w-[601px] h-[588.12px] bg-primaryDark rounded-[0_100px_100px_0]" style="background: radial-gradient(circle, #192644 0%, #192644 100%);"></div>
+            <div class="absolute w-[692px] h-[447px] rounded-3xl bg-white rotate-[7deg]">
+              <img src="assets/images/section1.png" class="rounded-3xl p-1" />
+            </div>
+
+            width: 692.87px;
+            height: 447.79px;
+            top: 1025.94px;
+            left: -28.85px;
+            gap: 0px;
+            opacity: 0px;
+            angle: -5 deg;
+            
+          </div>
+          <div>
+            <span class="inline-block bg-accent/10 text-accent p-2 px-6 rounded-full">Why Choose us</span>
+            <h3 class="text-3xl font-bold ">Why Partner with Us?</h3>
+            <div class="flex items-start ">
+              <div class="flex items-center justify-center flex-shrink-0 bg-accent/20 rounded-2xl size-14">
+                <svg width="29" height="29" class="fill-accent" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1513 19.0928C19.6068 18.6373 20.3456 18.6373 20.8012 19.0928L24.8845 23.1762C25.3401 23.6318 25.3401 24.3705 24.8845 24.8261C24.4289 25.2817 23.6902 25.2817 23.2346 24.8261L19.1513 20.7427C18.6957 20.2872 18.6957 19.5484 19.1513 19.0928Z" />
+                  <path d="M17.7091 2.49462C18.0234 2.63578 18.2256 2.94827 18.2256 3.29283V9.77341L24.1863 13.0247C24.4857 13.188 24.6629 13.5104 24.6404 13.8506C24.6179 14.1909 24.3997 14.4871 24.0814 14.6095L16.8951 17.3734L14.687 24.5502C14.5834 24.8865 14.2884 25.1282 13.9383 25.1634C13.5882 25.1987 13.2509 25.0208 13.0825 24.7119L9.80818 18.709L3.27795 18.1648C2.93841 18.1366 2.64619 17.9137 2.529 17.5938C2.41182 17.2739 2.49097 16.9151 2.73189 16.6741L6.99647 12.4095L4.28393 5.35694C4.15822 5.0301 4.23949 4.6598 4.49049 4.41563C4.7415 4.17146 5.11391 4.10046 5.43714 4.23515L11.9299 6.94048L16.7692 2.63886C17.0268 2.40993 17.3947 2.35347 17.7091 2.49462Z">
+                </svg>                  
+              </div>
+            
+              <div class="ml-4">
+                <h3 class="text-2xl font-bold font-SourceSans">Proven Expertise</h3>
+                <p class="mt-1 text-neutral">
+                  With extensive knowledge of U.S. immigration laws, we stay updated on regulations to provide you with reliable guidance.
+                </p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+<!-- 
+    <section class="mt-20 overflow-hidden">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div class="relative">
+            <div class="bg-[#121733] absolute -z-10 rounded-[40px] w-[140%] h-[120%] -top-[10%] -left-[20%]"></div>
+            <img src="assets/" alt="Immigration Consultation" class="rounded-[30px] relative z-10 w-full h-auto" />
+          </div>
+
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <span class="inline-block bg-[#FFF7E5] text-[#FFB800] text-sm font-medium py-2 px-6 rounded-full">
+                Why Choose Us
+              </span>
+              <h2 class="text-3xl font-bold text-[#121733]">
+                Why Partner with Us?
+              </h2>
+            </div>
+
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 bg-[#FFF7E5] rounded-2xl w-14 h-14 flex items-center justify-center">
+                  <svg width="29" height="29" class="fill-[#FFB800]" viewBox="0 0 29 29" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M19.1513 19.0928C19.6068 18.6373 20.3456 18.6373 20.8012 19.0928L24.8845 23.1762C25.3401 23.6318 25.3401 24.3705 24.8845 24.8261C24.4289 25.2817 23.6902 25.2817 23.2346 24.8261L19.1513 20.7427C18.6957 20.2872 18.6957 19.5484 19.1513 19.0928Z" />
+                    <path
+                      d="M17.7091 2.49462C18.0234 2.63578 18.2256 2.94827 18.2256 3.29283V9.77341L24.1863 13.0247C24.4857 13.188 24.6629 13.5104 24.6404 13.8506C24.6179 14.1909 24.3997 14.4871 24.0814 14.6095L16.8951 17.3734L14.687 24.5502C14.5834 24.8865 14.2884 25.1282 13.9383 25.1634C13.5882 25.1987 13.2509 25.0208 13.0825 24.7119L9.80818 18.709L3.27795 18.1648C2.93841 18.1366 2.64619 17.9137 2.529 17.5938C2.41182 17.2739 2.49097 16.9151 2.73189 16.6741L6.99647 12.4095L4.28393 5.35694C4.15822 5.0301 4.23949 4.6598 4.49049 4.41563C4.7415 4.17146 5.11391 4.10046 5.43714 4.23515L11.9299 6.94048L16.7692 2.63886C17.0268 2.40993 17.3947 2.35347 17.7091 2.49462Z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#121733]">Proven Expertise</h3>
+                  <p class="mt-2 text-gray-600">
+                    With extensive knowledge of U.S. immigration laws, we stay updated on regulations to provide you
+                    with reliable guidance.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 bg-[#FFF7E5] rounded-2xl w-14 h-14 flex items-center justify-center">
+                  <svg width="29" height="29" class="fill-[#FFB800]" viewBox="0 0 29 29" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M24.5183 12.0523C25.4855 12.0523 26.2871 12.8062 26.1349 13.7561C25.4568 17.9533 22.5352 21.4797 18.5451 22.9297C14.5551 24.3797 10.0937 23.5961 6.89875 20.889C3.70381 18.1819 2.23733 13.9525 3.05984 9.82493C3.88235 5.69733 6.87872 2.27777 10.8935 0.808434C11.7867 0.467812 12.7663 1.0465 12.9165 1.99486C13.0667 2.94323 12.3547 3.82157 11.4892 4.24394C8.62018 5.62905 6.5741 8.16701 5.97372 11.2039C5.37334 14.2407 6.4346 17.3761 8.81197 19.4605C11.1893 21.5449 14.4772 22.1391 17.4187 21.0505C20.3603 19.9619 22.5501 17.3273 23.1511 14.1926C23.4035 13.2602 24.0633 12.5706 24.9089 12.5706C24.7755 12.0523 24.5183 12.0523 24.5183 12.0523Z" />
+                    <path
+                      d="M14.1663 7.73413C14.1663 7.10073 14.6798 6.58722 15.3132 6.58722C15.9466 6.58722 16.4601 7.10073 16.4601 7.73413V13.787L20.5241 16.4155C21.0586 16.7667 21.2014 17.4772 20.8502 18.0116C20.499 18.5461 19.7885 18.6889 19.254 18.3377L14.6911 15.3581C14.3611 15.1404 14.1663 14.7766 14.1663 14.3871V7.73413Z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#121733]">Individual Attention</h3>
+                  <p class="mt-2 text-gray-600">
+                    We prioritize your unique circumstances and offer focused, personalized strategies to address your
+                    immigration needs.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 bg-[#FFF7E5] rounded-2xl w-14 h-14 flex items-center justify-center">
+                  <svg width="29" height="29" class="fill-[#FFB800]" viewBox="0 0 29 29" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13.9927 2.41667C7.85768 2.41667 2.88477 7.38958 2.88477 13.5246C2.88477 19.6596 7.85768 24.6325 13.9927 24.6325C20.1277 24.6325 25.1006 19.6596 25.1006 13.5246C25.1006 7.38958 20.1277 2.41667 13.9927 2.41667ZM19.2417 12.8999L13.0157 19.1259C12.8487 19.2929 12.6285 19.3846 12.3966 19.3846C12.1648 19.3846 11.9446 19.2929 11.7776 19.1259L8.74368 16.0919C8.39799 15.7462 8.39799 15.1914 8.74368 14.8457C9.08937 14.5 9.64424 14.5 9.98993 14.8457L12.3966 17.2524L17.9954 11.6536C18.3411 11.3079 18.896 11.3079 19.2417 11.6536C19.5874 11.9993 19.5874 12.5542 19.2417 12.8999Z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#121733]">Results-Driven Commitment</h3>
+                  <p class="mt-2 text-gray-600">
+                    We are dedicated to your success, ensuring you receive the support and resources necessary to reach
+                    your immigration objectives.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ -->
+
+
+    <!-- 
+
+    <section>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </section>
+  </main> -->
+
+    <footer>
+    </footer>
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+
+</html>
