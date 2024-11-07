@@ -20,6 +20,9 @@ module.exports = {
         'Mundial': ['Mundial', 'Arial', 'sans-serif'],
         'SourceSans': ['SourceSans', 'sans-serif'],
       },
+      screens: {
+        'more-xl': '2000px',
+      }
       // fontSize: {
       //   'xs': '.75rem',  // 12px
       //   'sm': '.875rem', // 14px
