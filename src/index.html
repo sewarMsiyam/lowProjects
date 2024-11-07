@@ -62,11 +62,13 @@
             <div class="hidden md:flex w-[1px] bg-[#ccc] h-10"></div>
           </div>
           <div class="hidden md:flex items-center space-x-8">
-            <a href="index.html" class="text-neutralDark hover:text-primary transition duration-150">Home</a>
-            <a href="index.html" class="text-neutralDark hover:text-primary transition duration-150">About us</a>
+            <a href="index.html"
+              class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Home</a>
+            <a href="index.html" class="text-neutralDark hover:text-primary transition duration-150 font-semibold">About
+              us</a>
             <div x-data="{ open: false }" class="relative">
               <button @click="open = !open"
-                class=" flex items-center text-neutralDark hover:text-primary transition duration-150">
+                class=" flex items-center text-neutralDark hover:text-primary transition duration-150 font-semibold">
                 Services
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -74,16 +76,19 @@
               </button>
               <div x-show="open" @click.away="open = false"
                 class="absolute z-50 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
-                <a href="#" class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150">Area
+                <a href="#"
+                  class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   1</a>
-                <a href="#" class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150">Area
+                <a href="#"
+                  class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   2</a>
-                <a href="#" class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150">Area
+                <a href="#"
+                  class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   3</a>
               </div>
             </div>
-            <a href="#" class="text-neutralDark hover:text-primary transition duration-150">Blog</a>
-            <a href="#" class="text-neutralDark hover:text-primary transition duration-150">Contact us</a>
+            <a href="#" class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Blog</a>
+            <a href="#" class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact us</a>
           </div>
 
 
@@ -129,10 +134,11 @@
               <img src="assets/images/logo.svg" alt="" class="">
             </a>
 
-            <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Home</a>
+            <a href="#"
+              class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Home</a>
             <div x-data="{ open: false }">
               <button @click="open = !open"
-                class="w-full flex justify-between items-center py-2 text-neutralDark hover:text-primary transition duration-150">
+                class="w-full flex justify-between items-center py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">
                 Practice Areas
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -141,13 +147,18 @@
               <div x-show="open" x-transition:enter="transition ease-out duration-200"
                 x-transition:enter-start="opacity-0 transform -translate-y-2"
                 x-transition:enter-end="opacity-100 transform translate-y-0" class="pl-4">
-                <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 1</a>
+                <a href="#"
+                  class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
+                  1</a>
                 <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 2</a>
                 <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 3</a>
               </div>
             </div>
-            <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">About</a>
-            <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Contact us</a>
+            <a href="#"
+              class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">About</a>
+            <a href="#"
+              class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact
+              us</a>
             <button
               class="bg-primaryDark text-white w-full px-8 py-3 rounded-full hover:bg-primary transition duration-150">
               Schedule Consultation
@@ -167,81 +178,89 @@
         </div>
         <img src="assets/images/hero.png" alt="Business meeting" class="w-full h-full object-cover" />
       </div>
-
       <div class="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 md:px-8">
         <div class="max-w-4xl mx-auto">
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-            Guiding You Through Your<br>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 md:leading-normal  ">
+            Guiding You Through Your <br class="hidden lg:block" />
             Immigration Journey With Confidence
           </h1>
-
-          <p class="text-lg md:text-xl text-white/90 mb-8">
+          <p class="text-lg md:text-xl text-white/80 my-8">
             We're dedicated to helping make your American dream a reality
           </p>
-
-          <button class="bg-transparent hover:bg-white hover:text-gray-900 text-white 
-            font-semibold py-3 px-8 border-2 border-white rounded-full 
-            transition-all duration-300">
+          <button
+            class="bg-gradient-to-r from-[#CEAC21] to-[#B5951A] text-white py-3 px-8 rounded-full transition-all duration-300 shadow-[0px_3.84615px_38.4615px_rgba(55,80,116,0.2)]">
             Schedule Consultation
           </button>
         </div>
       </div>
     </section>
 
-    
+
     <section class="mt-20">
       <div class="container">
         <div class="grid grid-col-1 lg:grid-cols-2 gap-4">
           <div>
-            <div class="absolute left-0 w-[601px] h-[588.12px] bg-primaryDark rounded-[0_100px_100px_0]" style="background: radial-gradient(circle, #192644 0%, #192644 100%);"></div>
+            <div class="absolute left-0 w-[601px] h-[588.12px] bg-primaryDark rounded-[0_100px_100px_0]"
+              style="background: radial-gradient(circle, #192644 0%, #192644 100%);"></div>
             <div class="absolute w-[668px] h-[447px] rounded-3xl bg-white rotate-[7deg]">
               <img src="assets/images/section1.png" class="rounded-3xl p-2" />
             </div>
           </div>
-          <div>
+          <div class="relative">
+            <div class="absolute w-[104px] h-[104px] left-full top-0 bg-accent filter blur-[150px]"></div>
             <span class="inline-block bg-accent/10 text-accent p-2 px-6 rounded-full">Why Choose us</span>
-            <h3 class="text-3xl font-bold ">Why Partner with Us?</h3>
-            <div class="flex items-start ">
-              <div class="flex items-center justify-center flex-shrink-0 bg-accent/20 rounded-2xl size-14">
-                <svg width="29" height="29" class="fill-accent" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1513 19.0928C19.6068 18.6373 20.3456 18.6373 20.8012 19.0928L24.8845 23.1762C25.3401 23.6318 25.3401 24.3705 24.8845 24.8261C24.4289 25.2817 23.6902 25.2817 23.2346 24.8261L19.1513 20.7427C18.6957 20.2872 18.6957 19.5484 19.1513 19.0928Z" />
-                  <path d="M17.7091 2.49462C18.0234 2.63578 18.2256 2.94827 18.2256 3.29283V9.77341L24.1863 13.0247C24.4857 13.188 24.6629 13.5104 24.6404 13.8506C24.6179 14.1909 24.3997 14.4871 24.0814 14.6095L16.8951 17.3734L14.687 24.5502C14.5834 24.8865 14.2884 25.1282 13.9383 25.1634C13.5882 25.1987 13.2509 25.0208 13.0825 24.7119L9.80818 18.709L3.27795 18.1648C2.93841 18.1366 2.64619 17.9137 2.529 17.5938C2.41182 17.2739 2.49097 16.9151 2.73189 16.6741L6.99647 12.4095L4.28393 5.35694C4.15822 5.0301 4.23949 4.6598 4.49049 4.41563C4.7415 4.17146 5.11391 4.10046 5.43714 4.23515L11.9299 6.94048L16.7692 2.63886C17.0268 2.40993 17.3947 2.35347 17.7091 2.49462Z">
-                </svg>                  
+            <h3 class="text-3xl font-bold mt-5 mb-10">Why Partner with Us?</h3>
+            <div class="space-y-9">
+              <div class="flex items-start ">
+                <div class="flex items-center justify-center flex-shrink-0 bg-accent/20 rounded-2xl size-14">
+                  <svg width="29" height="29" class="fill-accent" viewBox="0 0 29 29" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M19.1513 19.0928C19.6068 18.6373 20.3456 18.6373 20.8012 19.0928L24.8845 23.1762C25.3401 23.6318 25.3401 24.3705 24.8845 24.8261C24.4289 25.2817 23.6902 25.2817 23.2346 24.8261L19.1513 20.7427C18.6957 20.2872 18.6957 19.5484 19.1513 19.0928Z" />
+                    <path
+                      d="M17.7091 2.49462C18.0234 2.63578 18.2256 2.94827 18.2256 3.29283V9.77341L24.1863 13.0247C24.4857 13.188 24.6629 13.5104 24.6404 13.8506C24.6179 14.1909 24.3997 14.4871 24.0814 14.6095L16.8951 17.3734L14.687 24.5502C14.5834 24.8865 14.2884 25.1282 13.9383 25.1634C13.5882 25.1987 13.2509 25.0208 13.0825 24.7119L9.80818 18.709L3.27795 18.1648C2.93841 18.1366 2.64619 17.9137 2.529 17.5938C2.41182 17.2739 2.49097 16.9151 2.73189 16.6741L6.99647 12.4095L4.28393 5.35694C4.15822 5.0301 4.23949 4.6598 4.49049 4.41563C4.7415 4.17146 5.11391 4.10046 5.43714 4.23515L11.9299 6.94048L16.7692 2.63886C17.0268 2.40993 17.3947 2.35347 17.7091 2.49462Z">
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold font-SourceSans">Proven Expertise</h3>
+                  <p class="mt-1 text-neutral">
+                    With extensive knowledge of U.S. immigration laws, we stay updated on regulations to provide you
+                    with
+                    reliable guidance.
+                  </p>
+                </div>
               </div>
-              <div class="ml-4">
-                <h3 class="text-2xl font-bold font-SourceSans">Proven Expertise</h3>
-                <p class="mt-1 text-neutral">
-                  With extensive knowledge of U.S. immigration laws, we stay updated on regulations to provide you with reliable guidance.
-                </p>
+              <div class="flex items-start ">
+                <div class="flex items-center justify-center flex-shrink-0 bg-accent/20 rounded-2xl size-14">
+                  <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7171 1.12083C16.2963 1.80162 16.0543 2.59863 16.0543 3.45076C16.0543 4.49622 16.4186 5.45869 17.0304 6.22533C15.2123 7.39099 14.0127 9.39274 14.0127 11.6674C14.0127 13.0758 15.1878 14.2174 16.6377 14.2174H24.8081C25.0875 14.2174 25.3566 14.175 25.6092 14.0965C24.9433 20.216 19.6136 24.9841 13.1377 24.9841C11.1382 24.9841 9.40871 24.4858 7.80773 23.6835C7.39163 23.4749 6.94663 23.4258 6.56164 23.538L3.79767 24.3434C2.24027 24.7973 0.788214 23.3868 1.25544 21.8739L2.08463 19.1889C2.20013 18.8149 2.14949 18.3825 1.93485 17.9784C1.109 16.4231 0.595947 14.7429 0.595947 12.8008C0.595947 6.0721 6.21104 0.617432 13.1377 0.617432C14.3813 0.617432 15.5828 0.7933 16.7171 1.12083ZM6.13704 12.8184C6.13704 12.1926 6.65938 11.6851 7.30371 11.6851H7.31416C7.9585 11.6851 8.48083 12.1926 8.48083 12.8184C8.48083 13.4444 7.9585 13.9518 7.31416 13.9518H7.30371C6.65938 13.9518 6.13704 13.4444 6.13704 12.8184ZM10.7939 12.8184C10.7939 12.1926 11.3161 11.6851 11.9605 11.6851H11.971C12.6153 11.6851 13.1377 12.1926 13.1377 12.8184C13.1377 13.4444 12.6153 13.9518 11.971 13.9518H11.9605C11.3161 13.9518 10.7939 13.4444 10.7939 12.8184ZM20.7219 0.617432C19.1109 0.617432 17.8043 1.88558 17.8043 3.45076C17.8043 5.01594 19.1109 6.2841 20.7219 6.2841C22.3329 6.2841 23.6395 5.01594 23.6395 3.45076C23.6395 1.88558 22.3329 0.617432 20.7219 0.617432ZM20.7229 6.85076C17.9838 6.85076 15.7627 9.00688 15.7627 11.6674C15.7627 12.1368 16.1543 12.5174 16.6377 12.5174H24.8081C25.2913 12.5174 25.6831 12.1368 25.6831 11.6674C25.6831 9.00688 23.462 6.85076 20.7229 6.85076Z"
+                      class="fill-accent" />
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold font-SourceSans">Individual Attention</h3>
+                  <p class="mt-1 text-neutral">
+                    we prioritize your unique circumstances and offer focused, personalized strategies to address your
+                    immigration needs. </p>
+                </div>
+              </div>
+              <div class="flex items-start ">
+                <div class="flex items-center justify-center flex-shrink-0 bg-accent/20 rounded-2xl size-14">
+                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M13.429 0.542786C6.50243 0.542786 0.887329 6.15788 0.887329 13.0845C0.887329 20.0111 6.50243 25.6261 13.429 25.6261C20.3556 25.6261 25.9707 20.0111 25.9707 13.0845C25.9707 6.15788 20.3556 0.542786 13.429 0.542786ZM14.5957 8.41779C14.5957 7.77346 14.0733 7.25112 13.429 7.25112C12.7846 7.25112 12.2623 7.77346 12.2623 8.41779V13.0845C12.2623 13.3939 12.3853 13.6907 12.604 13.9094L14.9374 16.2427C15.393 16.6983 16.1317 16.6983 16.5873 16.2427C17.0429 15.7872 17.0429 15.0484 16.5873 14.5928L14.5957 12.6012V8.41779Z"
+                      class="fill-accent" />
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold font-SourceSans">Results-Driven Commitment</h3>
+                  <p class="mt-1 text-neutral">
+                    we are dedicated to your success, ensuring you receive the support and resources necessary to reach
+                    your immigration objectives.
+                </div>
               </div>
             </div>
-
-            <div class="flex items-start ">
-              <div class="flex items-center justify-center flex-shrink-0 bg-accent/20 rounded-2xl size-14">
-                <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7171 1.12083C16.2963 1.80162 16.0543 2.59863 16.0543 3.45076C16.0543 4.49622 16.4186 5.45869 17.0304 6.22533C15.2123 7.39099 14.0127 9.39274 14.0127 11.6674C14.0127 13.0758 15.1878 14.2174 16.6377 14.2174H24.8081C25.0875 14.2174 25.3566 14.175 25.6092 14.0965C24.9433 20.216 19.6136 24.9841 13.1377 24.9841C11.1382 24.9841 9.40871 24.4858 7.80773 23.6835C7.39163 23.4749 6.94663 23.4258 6.56164 23.538L3.79767 24.3434C2.24027 24.7973 0.788214 23.3868 1.25544 21.8739L2.08463 19.1889C2.20013 18.8149 2.14949 18.3825 1.93485 17.9784C1.109 16.4231 0.595947 14.7429 0.595947 12.8008C0.595947 6.0721 6.21104 0.617432 13.1377 0.617432C14.3813 0.617432 15.5828 0.7933 16.7171 1.12083ZM6.13704 12.8184C6.13704 12.1926 6.65938 11.6851 7.30371 11.6851H7.31416C7.9585 11.6851 8.48083 12.1926 8.48083 12.8184C8.48083 13.4444 7.9585 13.9518 7.31416 13.9518H7.30371C6.65938 13.9518 6.13704 13.4444 6.13704 12.8184ZM10.7939 12.8184C10.7939 12.1926 11.3161 11.6851 11.9605 11.6851H11.971C12.6153 11.6851 13.1377 12.1926 13.1377 12.8184C13.1377 13.4444 12.6153 13.9518 11.971 13.9518H11.9605C11.3161 13.9518 10.7939 13.4444 10.7939 12.8184ZM20.7219 0.617432C19.1109 0.617432 17.8043 1.88558 17.8043 3.45076C17.8043 5.01594 19.1109 6.2841 20.7219 6.2841C22.3329 6.2841 23.6395 5.01594 23.6395 3.45076C23.6395 1.88558 22.3329 0.617432 20.7219 0.617432ZM20.7229 6.85076C17.9838 6.85076 15.7627 9.00688 15.7627 11.6674C15.7627 12.1368 16.1543 12.5174 16.6377 12.5174H24.8081C25.2913 12.5174 25.6831 12.1368 25.6831 11.6674C25.6831 9.00688 23.462 6.85076 20.7229 6.85076Z" class="fill-accent"/>
-                  </svg>                               
-              </div>
-              <div class="ml-4">
-                <h3 class="text-2xl font-bold font-SourceSans">Individual Attention</h3>
-                <p class="mt-1 text-neutral">
-                  we prioritize your unique circumstances and offer focused, personalized strategies to address your immigration needs.                </p>
-              </div>
-            </div>
-
-            
-            <div class="flex items-start ">
-              <div class="flex items-center justify-center flex-shrink-0 bg-accent/20 rounded-2xl size-14">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M13.429 0.542786C6.50243 0.542786 0.887329 6.15788 0.887329 13.0845C0.887329 20.0111 6.50243 25.6261 13.429 25.6261C20.3556 25.6261 25.9707 20.0111 25.9707 13.0845C25.9707 6.15788 20.3556 0.542786 13.429 0.542786ZM14.5957 8.41779C14.5957 7.77346 14.0733 7.25112 13.429 7.25112C12.7846 7.25112 12.2623 7.77346 12.2623 8.41779V13.0845C12.2623 13.3939 12.3853 13.6907 12.604 13.9094L14.9374 16.2427C15.393 16.6983 16.1317 16.6983 16.5873 16.2427C17.0429 15.7872 17.0429 15.0484 16.5873 14.5928L14.5957 12.6012V8.41779Z"  class="fill-accent"/>
-                  </svg>                                               
-              </div>
-              <div class="ml-4">
-                <h3 class="text-2xl font-bold font-SourceSans">Results-Driven Commitment</h3>
-                <p class="mt-1 text-neutral">
-                  we are dedicated to your success, ensuring you receive the support and resources necessary to reach your immigration objectives.              </div>
-            </div>
-            
           </div>
         </div>
       </div>
@@ -249,7 +268,7 @@
 
 
 
-<!-- 
+    <!-- 
     <section class="mt-20 overflow-hidden">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

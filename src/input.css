@@ -19,7 +19,7 @@
 @layer base {
   body {
     font-family: 'SourceSans', sans-serif; 
-    @apply bg-lightGray;
+    @apply bg-lightGray overflow-x-hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Mundial', sans-serif;
