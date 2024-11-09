@@ -6,6 +6,27 @@ module.exports = {
       center: true
     },
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '1.5rem',
+          lg: '2rem',
+          xl: '2.5rem',
+        },
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1536px',
+        },
+        maxWidth: {
+          DEFAULT: '100%',
+          lg: '80%',
+          xl: '1120px',
+        },
+      },
       colors: {
         primaryDark: '#192644', 
         primary: '#375074', 
@@ -14,6 +35,7 @@ module.exports = {
         neutralDark: '#2E2E2E',  
         neutral: '#707070',
         lightGray: '#F2F2F2',
+        gray:"#CCCCCC",
         white: '#FFFFFF',
       },
       fontFamily: {
