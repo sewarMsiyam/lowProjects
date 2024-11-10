@@ -25,6 +25,9 @@
     font-family: 'Mundial', sans-serif;
     @apply text-primaryDark;
   }
+  button{
+    font-family: 'SourceSans', sans-serif; 
+  }
 }
 
 @layer components {
