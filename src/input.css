@@ -84,3 +84,32 @@
 .plus-minus-icon.minus::after {
     transform: translateX(-50%) scaleY(0);
 }
+
+
+
+
+
+.slide-item {
+  flex: 0 0 calc(20% - 1rem);
+  user-select: none;
+}
+
+.slider-container {
+  cursor: grab;
+}
+
+.slider-container:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 1024px) {
+  .slide-item {
+      flex: 0 0 calc(33.333% - 1rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .slide-item {
+      flex: 0 0 calc(50% - 1rem);
+  }
+}

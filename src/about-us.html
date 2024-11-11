@@ -166,8 +166,6 @@
     </div>
   </header>
   <main>
-
-
     <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img src="assets/images/aboutUs.png" alt=""
         class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-bottom">
@@ -182,11 +180,13 @@
     <section class="relative mt-10 lg:mt-20">
       <div class="container">
         <div class="flex flex-col lg:flex-row justify-center gap-y-10 lg:gap-52">
-          <div class="col-span-2 order-2 lg:order-1 space-y-6 xl:w-[595px]">
-            <div class="space-y-3">
+          <div class="col-span-2 order-2 lg:order-1 space-y-12 lg:w-[595px]">
+            <span class="absolute w-[104px] h-[104px] left-[2%] top-[25%] bg-accent filter blur-[120px]"></span>
+
+            <div class="space-y-4">
               <span class="inline-block bg-accent/10 text-accent p-2 px-6 rounded-full text-sm">Attorney</span>
-              <h3 class="text-3xl font-bold ">Meet Ahmad El-Bahesh</h3>
-              <p class="mt-2 text-neutral text-justify text-xl">
+              <h3 class="text-4xl font-bold ">Meet Ahmad El-Bahesh</h3>
+              <p class="mt-2 text-neutral text-justify text-xl leading-relaxed">
                 As the son of Palestinian immigrants, Ahmad El-Bahesh knows
                 firsthand the courage it takes to seek a better life in a new
                 country. Growing up in a family that navigated the immigration
@@ -196,21 +196,114 @@
                 knows well.
               </p>
             </div>
-            <div class="space-y-3">
+            <div class="space-y-4">
               <h3 class="text-xl font-bold ">Education</h3>
-              <ul class="list-outside list-image-checkmark pl-5 space-y-2  text-neutral text-justify">
+              <ul class="list-outside list-image-checkmark pl-5 space-y-2 text-neutral text-justify text-xl">
                 <li>Juris Doctor, Duncan School of Law, Lincoln Memorial University</li>
                 <li>Bachelor of Arts in Political Science, Auburn University</li>
               </ul>
             </div>
-        
+            <div class="space-y-4">
+              <h3 class="text-xl font-bold ">Admissions</h3>
+              <ul class="list-outside list-image-checkmark pl-5 space-y-2 text-neutral text-justify text-xl">
+                <li>Illinois State Bar</li>
+                <li>District of Columbia Bar</li>
+                <li>U.S. District Court for the Northern District of Illinois</li>
+              </ul>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-xl font-bold ">Professional Associations &Memberships</h3>
+              <div>
+
+              </div>
+            </div>
 
           </div>
           <div class="order-1 lg:order-2 text-center">
-            <img src="assets/images/low.png" class="mx-auto object-contain rounded-[30px] w-96 h-[350px] lg:h-[560px]" />
+            <img src="assets/images/low.png"
+              class="mx-auto object-contain rounded-[30px] w-96 h-[350px] lg:h-[460px]" />
           </div>
         </div>
       </div>
+      <div class="w-full mx-auto ps-32">
+        <div x-data="{
+            activeSlide: 0,
+            isDragging: false,
+            startPos: 0,
+            currentTranslate: 0,
+            prevTranslate: 0,
+            slides: [
+                {
+                    image: 'assets/images/1.png',
+                },
+                {
+                    image: 'assets/images/2.png',
+                },
+                {
+                  image: 'assets/images/1.png',
+                },
+                {
+                  image: 'assets/images/2.png',
+                },
+                {
+                  image: 'assets/images/1.png',
+                },
+                {
+                  image: 'assets/images/1.png',
+              },
+            ],
+            get maxSlide() {
+                return this.slides.length - 4.5;
+            },
+            touchStart(e) {
+                this.isDragging = true;
+                this.startPos = this.getPositionX(e);
+                this.prevTranslate = this.currentTranslate;
+            },
+            touchMove(e) {
+                if (!this.isDragging) return;
+                const currentPosition = this.getPositionX(e);
+                const diff = currentPosition - this.startPos;
+                this.currentTranslate = this.prevTranslate + diff;
+                // Limit the drag
+                const maxTranslate = -(this.maxSlide * (100/4.5));
+                this.currentTranslate = Math.max(Math.min(this.currentTranslate, 0), maxTranslate);
+            },
+            touchEnd() {
+                this.isDragging = false;
+                const slideWidth = 100/4.5;
+                const slideIndex = Math.round(Math.abs(this.currentTranslate) / slideWidth);
+                this.activeSlide = Math.min(Math.max(slideIndex, 0), this.maxSlide);
+                this.currentTranslate = -(this.activeSlide * slideWidth);
+                this.prevTranslate = this.currentTranslate;
+            },
+            getPositionX(e) {
+                return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            }
+        }" class="relative overflow-hidden">
+          <div class="slider-container overflow-hidden" @mousedown="touchStart" @touchstart="touchStart"
+            @mouseup="touchEnd" @touchend="touchEnd" @mouseleave="isDragging && touchEnd()" @mousemove="touchMove"
+            @touchmove="touchMove">
+            <div class="flex gap-4 transition-transform duration-300 ease-out pl-4"
+              :style="`transform: translateX(${currentTranslate}%)`">
+              <template x-for="(slide, index) in slides" :key="index">
+                <div class="slide-item">
+                  <div class="bg-white rounded-xl shadow-md overflow-hidden m-2">
+                    <div class="relative aspect-video flex justify-center items-center ">
+                      <img :src="slide.image" :alt="slide.title" class="mx-auto object-contain" draggable="false" />
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+          <div class="mt-2 h-1 bg-gray-200 rounded-full overflow-hidden">
+            <div class="h-full bg-accent transition-all duration-300"
+              :style="`width: ${(activeSlide / maxSlide) * 100}%`"></div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
 
@@ -220,25 +313,200 @@
 
 
 
+    <section class="relative mt-20">
+      <div class="text-center">
+        <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Values</span>
+        <h3 class="text-3xl font-bold mt-5 mb-10">Our Values</h3>
+      </div>
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div class="bg-[#FDFCFC] rounded-[40px] border border-gray text-center p-9 py-11">
+            <img src="assets/images/1V.png" class="size-32 mx-auto" />
+            <h3 class="text-primaryDark font-bold text-2xl mt-10 mb-4">Empathy</h3>
+            <p class="text-center text-neutral text-lg">Ahmad’s personal journey informs the firm’s approach to every
+              client’s case.
+              El-Bahesh Law Firm operates with respect, care & a deep understanding
+              of the immigrant experience.</p>
+          </div>
+          <div class="bg-[#FDFCFC] rounded-[40px] border border-gray text-center p-9 py-11">
+            <img src="assets/images/2V.png" class="size-32 mx-auto" />
+            <h3 class="text-primaryDark font-bold text-2xl mt-10 mb-4">Integrity</h3>
+            <p class="text-center text-neutral text-lg">Honesty and ethics are at the core of the firm’s work, ensuring
+              that every client receives transparent and trustworthy legal guidance.
+              of the immigrant experience.</p>
+          </div>
+          <div class="bg-[#FDFCFC] rounded-[40px] border border-gray text-center p-9 py-11">
+            <img src="assets/images/3V.png" class="size-32 mx-auto" />
+            <h3 class="text-primaryDark font-bold text-2xl mt-10 mb-4">Determination</h3>
+            <p class="text-center text-neutral text-lg">The immigration journey can be complex and challenging, but El-
+              Bahesh Law is unwavering in its pursuit of solutions and dedicated to achieving the best outcomes for its
+              clients.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="relative mt-20">
+      <div class="text-center mb-36">
+        <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Services</span>
+        <h3 class="text-3xl font-bold mt-5 mb-10">Our Services</h3>
+      </div>
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-40 gap-x-20">
+          <div class="bg-primaryDark/5 rounded-[187px] flex flex-col justify-center items-center lg:w-[100%] h-[280px]">
+            <img src="assets/images/hero.png" class="w-[280px] h-[256px] rounded-[187px] object-cover -mt-36" />
+            <h4 class="text-center font-bold text-xl pt-10 pb-8">Family-Based Immigration</h4>
+            <div class="-mb-[50px]">
+              <a href="" class="flex justify-center items-center rounded-full  w-[62px] h-[50px] bg-primaryDark">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.9181 4.52353L4.31152 15.1301" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.37973 4.54111L14.9173 4.52272L14.8997 13.061" stroke="white" stroke-width="1.5"
+                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-primaryDark/5 rounded-[187px] flex flex-col justify-center items-center  lg:w-[100%] h-[280px]">
+            <img src="assets/images/hero.png" class="w-[280px] h-[256px] rounded-[187px] object-cover -mt-36" />
+            <h4 class="text-center font-bold text-xl pt-10 pb-8">Family-Based Immigration</h4>
+            <div class="-mb-[50px]">
+              <a href="" class="flex justify-center items-center rounded-full  w-[62px] h-[50px] bg-primaryDark">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.9181 4.52353L4.31152 15.1301" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.37973 4.54111L14.9173 4.52272L14.8997 13.061" stroke="white" stroke-width="1.5"
+                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-primaryDark/5 rounded-[187px] flex flex-col justify-center items-center  lg:w-[100%] h-[280px]">
+            <img src="assets/images/hero.png" class="w-[280px] h-[256px] rounded-[187px] object-cover -mt-36" />
+            <h4 class="text-center font-bold text-xl pt-10 pb-8">Family-Based Immigration</h4>
+            <div class="-mb-[50px]">
+              <a href="" class="flex justify-center items-center rounded-full  w-[62px] h-[50px] bg-primaryDark">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.9181 4.52353L4.31152 15.1301" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.37973 4.54111L14.9173 4.52272L14.8997 13.061" stroke="white" stroke-width="1.5"
+                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-primaryDark/5 rounded-[187px] flex flex-col justify-center items-center  lg:w-[100%] h-[280px]">
+            <img src="assets/images/hero.png" class="w-[280px] h-[256px] rounded-[187px] object-cover -mt-36" />
+            <h4 class="text-center font-bold text-xl pt-10 pb-8">Family-Based Immigration</h4>
+            <div class="-mb-[50px]">
+              <a href="" class="flex justify-center items-center rounded-full  w-[62px] h-[50px] bg-primaryDark">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.9181 4.52353L4.31152 15.1301" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.37973 4.54111L14.9173 4.52272L14.8997 13.061" stroke="white" stroke-width="1.5"
+                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-primaryDark/5 rounded-[187px] flex flex-col justify-center items-center  lg:w-[100%] h-[280px]">
+            <img src="assets/images/hero.png" class="w-[280px] h-[256px] rounded-[187px] object-cover -mt-36" />
+            <h4 class="text-center font-bold text-xl pt-10 pb-8">Family-Based Immigration</h4>
+            <div class="-mb-[50px]">
+              <a href="" class="flex justify-center items-center rounded-full  w-[62px] h-[50px] bg-primaryDark">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.9181 4.52353L4.31152 15.1301" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.37973 4.54111L14.9173 4.52272L14.8997 13.061" stroke="white" stroke-width="1.5"
+                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-primaryDark/5 rounded-[187px] flex flex-col justify-center items-center  lg:w-[100%] h-[280px]">
+            <img src="assets/images/hero.png" class="w-[280px] h-[256px] rounded-[187px] object-cover -mt-36" />
+            <h4 class="text-center font-bold text-xl pt-10 pb-8">Family-Based Immigration</h4>
+            <div class="-mb-[50px]">
+              <a href="" class="flex justify-center items-center rounded-full  w-[62px] h-[50px] bg-primaryDark">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.9181 4.52353L4.31152 15.1301" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.37973 4.54111L14.9173 4.52272L14.8997 13.061" stroke="white" stroke-width="1.5"
+                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="relative mt-40">
+      <div class="container mx-auto">
+        <div class="relative isolate overflow-hidden bg-gray-900 py-24 rounded-[40px]">
+          <img src="assets/images/aboutUs.png" alt=""
+            class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-bottom">
+          <div class="absolute top-0 w-full h-full bg-[#25304D]/80 "></div>
+          <div class="relative z-10">
+            <div class="container ">
+              <div class="flex items-center justify-between w-[85%] mx-auto">
+                <div>
+                  <h2 class="text-white text-3xl mb-3">Keep your family together and worry-free!</h2>
+                  <p class="text-white/70 text-xl">Every case is special and a top priority for us Contact Now!</p>
+                </div>
+                <div>
+                  <a>
+                    <img src="assets/images/phoneIcon.svg" class="border border-accent p-1 rounded-full" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="relative mt-20">
+      <div class="text-center">
+        <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Blog</span>
+        <h3 class="text-3xl font-bold mt-5 mb-10">News & Articles</h3>
+      </div>
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
 
+          <a href="#" class="space-y-3">
+            <img src="assets/images/section1.png" class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover"
+              alt="" />
+            <p class="text-neutral text-lg ">19 Dec 2024</p>
+            <h4 class="text-primaryDark font-bold text-2xl">Legal Challenges in Immigration Linked to Trump’s Legacy
+            </h4>
+          </a>
 
+          <a href="#" class="space-y-3 ">
+            <img src="assets/images/section1.png" class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover"
+              alt="" />
+            <p class="text-neutral text-lg ">19 Dec 2024</p>
+            <h4 class="text-primaryDark font-bold text-2xl">Legal Challenges in Immigration Linked to Trump’s Legacy
+            </h4>
+          </a>
 
-
-
-
-
-
-
-
-
+          <a href="#" class="space-y-3 ">
+            <img src="assets/images/section1.png" class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover"
+              alt="" />
+            <p class="text-neutral text-lg ">19 Dec 2024</p>
+            <h4 class="text-primaryDark font-bold text-2xl">Legal Challenges in Immigration Linked to Trump’s Legacy
+            </h4>
+          </a>
+        </div>
+      </div>
+    </section>
 
   </main>
-
-
-
 
   <footer class="bg-primaryDark text-white mt-32">
     <span>
