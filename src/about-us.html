@@ -52,16 +52,17 @@
     <div class="container">
       <nav class="py-1">
         <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-6">
-            <a href="index.html">
-              <img src="assets/images/logo.svg" alt="" class="">
+          <div class="flex items-center lg:space-x-2 xl:space-x-6">
+            <a href="index.html" class="lg:w-[80%] xl:w-full">
+              <img src="assets/images/logo.svg" alt="">
             </a>
             <div class="hidden md:flex w-[1px] bg-[#ccc] h-10"></div>
           </div>
-          <div class="hidden md:flex items-center space-x-8">
+          <div class="hidden lg:flex items-center space-x-8">
             <a href="index.html"
               class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Home</a>
-            <a href="index.html" class="text-neutralDark hover:text-primary transition duration-150 font-semibold">About
+            <a href="about-us.html"
+              class="text-neutralDark hover:text-primary transition duration-150 font-semibold">About
               us</a>
             <div x-data="{ open: false }" class="relative">
               <button @click="open = !open"
@@ -87,9 +88,7 @@
             <a href="#" class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Blog</a>
             <a href="#" class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact us</a>
           </div>
-
-
-          <div class="hidden md:flex items-center space-x-6">
+          <div class="hidden lg:flex items-center space-x-6">
             <div class="hidden md:flex w-[1px] bg-[#ccc] h-10"></div>
             <button class="text-white hover:text-gray-300 transition duration-150">
               <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,12 +99,13 @@
                   stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </button>
-            <button class="bg-primaryDark text-white px-8 py-3 rounded-full hover:bg-primary transition duration-150">
+            <button
+              class="bg-primaryDark text-white px-5 xl:px-8 py-3 rounded-full hover:bg-primary transition duration-150">
               Schedule Consultation
             </button>
           </div>
 
-          <button @click="mobileMenuOpen = true" class="md:hidden text-primaryDark">
+          <button @click="mobileMenuOpen = true" class="lg:hidden text-primaryDark">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -151,7 +151,7 @@
                 <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 3</a>
               </div>
             </div>
-            <a href="#"
+            <a href="about-us.html"
               class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">About</a>
             <a href="#"
               class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact
@@ -165,14 +165,85 @@
       </nav>
     </div>
   </header>
-
   <main>
-    
+
+
+    <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+      <img src="assets/images/aboutUs.png" alt=""
+        class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-bottom">
+      <div class="absolute top-0 w-full h-full bg-[#25304D]/80 "></div>
+      <div class="relative z-10">
+        <div class="container ">
+          <h2 class="text-3xl text-center font-semibold text-white">About us</h2>
+        </div>
+      </div>
+    </div>
+
+    <section class="relative mt-10 lg:mt-20">
+      <div class="container">
+        <div class="flex flex-col lg:flex-row justify-center gap-y-10 lg:gap-52">
+          <div class="col-span-2 order-2 lg:order-1 space-y-6 xl:w-[595px]">
+            <div class="space-y-3">
+              <span class="inline-block bg-accent/10 text-accent p-2 px-6 rounded-full text-sm">Attorney</span>
+              <h3 class="text-3xl font-bold ">Meet Ahmad El-Bahesh</h3>
+              <p class="mt-2 text-neutral text-justify text-xl">
+                As the son of Palestinian immigrants, Ahmad El-Bahesh knows
+                firsthand the courage it takes to seek a better life in a new
+                country. Growing up in a family that navigated the immigration
+                system and faced the challenges of building a new life in the US, he developed a deep empathy and
+                respect for the immigrant experience. This personal journey is the foundation of Ahmad& approach to
+                immigration law—driven by compassion, resilience, and a commitment to serve those embarking on a path he
+                knows well.
+              </p>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-xl font-bold ">Education</h3>
+              <ul class="list-outside list-image-checkmark pl-5 space-y-2  text-neutral text-justify">
+                <li>Juris Doctor, Duncan School of Law, Lincoln Memorial University</li>
+                <li>Bachelor of Arts in Political Science, Auburn University</li>
+              </ul>
+            </div>
+        
+
+          </div>
+          <div class="order-1 lg:order-2 text-center">
+            <img src="assets/images/low.png" class="mx-auto object-contain rounded-[30px] w-96 h-[350px] lg:h-[560px]" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </main>
-<footer class="bg-primaryDark text-white mt-32">
+
+
+
+
+  <footer class="bg-primaryDark text-white mt-32">
     <span>
-      <svg class="w-full h-full lg:h-[60%] 2xl:h-[550px] absolute" viewBox="0 0 1440 490" fill="none" xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none">
+      <svg class="w-full h-full lg:h-[60%] 2xl:h-[550px] absolute" viewBox="0 0 1440 490" fill="none"
+        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <path opacity="0.03"
           d="M0.286377 489.044C0.286377 489.044 400.921 497.268 754.75 326.396C1108.58 155.524 1440.29 142.299 1440.29 142.299V-19.375H0.286377V489.044Z"
           fill="url(#paint0_linear_336_874)" />

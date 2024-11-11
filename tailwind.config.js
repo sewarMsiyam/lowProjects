@@ -17,9 +17,10 @@ module.exports = {
         screens: {
           sm: '640px',
           md: '768px',
-          lg: '1024px',
+          lg: '992px',
           xl: '1280px',
-          '2xl': '1536px',
+          '2xl': '1250px',
+          // '2xl': '1536px',
         },
         maxWidth: {
           DEFAULT: '100%',
@@ -44,6 +45,9 @@ module.exports = {
       },
       screens: {
         'more-xl': '2000px',
+      },
+      listStyleImage: {
+        checkmark: 'url("/src/assets/images/checkmark.svg")'
       }
       // fontSize: {
       //   'xs': '.75rem',  // 12px
