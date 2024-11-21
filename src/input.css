@@ -28,12 +28,20 @@
   button{
     font-family: 'SourceSans', sans-serif; 
   }
+  /* input {
+    @apply flex h-10 w-full rounded-full bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50;
+  } */
 }
 
 @layer components {
   .font-heading {
     font-family: 'Mundial', sans-serif;
   }
+  .active{
+    @apply bg-accent size-10 rounded-xl text-white;
+  }
+
+  
   /* .btn-primary {
     @apply bg-primary text-white font-semibold py-2 px-4 rounded-lg shadow-button;
   }
@@ -49,10 +57,14 @@
     -webkit-mask-size: cover;
     mask-size: cover;
   }
+
+
 }
 
 
-
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
 [x-cloak] { display: none; }
 .plus-minus-icon {
     position: relative;

@@ -225,7 +225,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full mx-auto ps-32">
+      <div class="w-full mx-auto container">
         <div x-data="{
             activeSlide: 0,
             isDragging: false,
@@ -288,9 +288,9 @@
               :style="`transform: translateX(${currentTranslate}%)`">
               <template x-for="(slide, index) in slides" :key="index">
                 <div class="slide-item">
-                  <div class="bg-white rounded-xl shadow-md overflow-hidden m-2">
+                  <div class="bg-white rounded-xl shadow-md overflow-hidden m-2 flex justify-center items-center w-full h-36 border-l-8 border-b-8 border-accent">
                     <div class="relative aspect-video flex justify-center items-center ">
-                      <img :src="slide.image" :alt="slide.title" class="mx-auto object-contain" draggable="false" />
+                      <img :src="slide.image" :alt="slide.title" class="mx-auto p-3 object-contain" draggable="false" />
                     </div>
                   </div>
                 </div>
@@ -304,6 +304,18 @@
         </div>
       </div>
 
+
+      <div class="absolute right-0 -bottom-10 -z-10">
+        <svg width="308" height="840" viewBox="0 0 308 840" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.421875 87.6428L11.1133 99.5251L15.4948 110.714V110.759L11.1933 128.4L18.2498 150.432L26.0351 184.346L26.7638 218.118L36.5933 278.978L25.9285 307.889L35.2513 357.373L75.2532 472.242L49.3466 627.691L62.9532 635.725L59.256 739.689L52.395 838.009L237.18 839.529L228.666 718.67L238.336 700.842L234.283 661.756L241.375 649.918L230.275 572.482L244.433 543.99L272.072 520.776L283.857 509.925L300.085 483.138L297.303 468.278L307.915 444.22L303.756 437.902L261.301 418.136L243.668 444.22L218.944 425.113L203.382 375.672L182.052 360.679L173.005 333.315L166.313 309.675L172.721 286.044L175.067 281.52L214.562 273.024L174.418 268.5L173.378 264.723L209.416 242.185L166.437 253.64L163.016 248.921L181.021 212.981L149.88 243.402L141.046 241.518L133.421 192.416L127.617 241.474L118.401 244.069L84.1049 211.897L103.755 249.206L100.564 254.547L60.0203 238.176L95.303 263.736L94.5743 267.94L54.679 264.332L94.2899 279.689L106.305 308.146L101.577 328.694L92.1658 323.699L78.6748 299.872L80.3367 280.462L73.2802 277.174L67.4768 256.707L66.4103 241.518L46.867 160.892L45.9161 125.565L40.7703 110.883L47.0003 100.289L60.4736 87.3584V78.871L39.8993 64.9001L41.8368 56.5993L47.8447 47.3476L49.2488 33.1545L44.1119 22.8896L41.5791 29.5818L32.7095 0.0402832L21.5381 24.1783L15.8147 14.0112L11.5665 33.7855L14.0016 49.8271L17.0145 54.5552L22.3025 64.8112L0.421875 78.5866V87.6428Z" fill="url(#paint0_linear_497_310)"/>
+          <defs>
+          <linearGradient id="paint0_linear_497_310" x1="154.168" y1="457.264" x2="154.168" y2="839.529" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#EBEBEB"/>
+          <stop offset="1" stop-color="#ECECEC"/>
+          </linearGradient>
+          </defs>
+          </svg>          
+      </div>
     </section>
 
 
