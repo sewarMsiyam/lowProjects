@@ -89,73 +89,25 @@
                                     3</a>
                             </div>
                         </div>
-                        <a href="blog.html"
+                        <a href="#"
                             class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Blog</a>
-                        <a href="contactus.html"
+                        <a href="#"
                             class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact
                             us</a>
                     </div>
                     <div class="hidden lg:flex items-center space-x-6">
-
                         <div class="hidden md:flex w-[1px] bg-[#ccc] h-10"></div>
-
-                        <div x-data="{ isOpen: false, searchQuery: '' }">
-                            <button @click="isOpen = true"
-                                class="text-white hover:text-gray-300 transition duration-150">
-                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12 21.9592C17.2467 21.9592 21.5 17.7059 21.5 12.4592C21.5 7.21252 17.2467 2.95923 12 2.95923C6.75329 2.95923 2.5 7.21252 2.5 12.4592C2.5 17.7059 6.75329 21.9592 12 21.9592Z"
-                                        stroke="#192644" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path class="stroke-primaryDark" d="M22.5 22.9592L20.5 20.9592" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                            <div x-show="isOpen" x-transition:enter="transition ease-out duration-300"
-                                x-transition:enter-start="opacity-0 transform scale-95"
-                                x-transition:enter-end="opacity-100 transform scale-100"
-                                x-transition:leave="transition ease-in duration-200"
-                                x-transition:leave-start="opacity-100 transform scale-100"
-                                x-transition:leave-end="opacity-0 transform scale-95"
-                                class="fixed inset-0 z-50 flex flex-col items-center justify-center pt-16 px-4 sm:px-6 bg-black/80">
-
-                                <!-- Close Button -->
-                                <div class="absolute top-[20%] right-[20%] ">
-                                    <button @click="isOpen = false" class=" bg-white rounded-full transform ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
-                                </div>
-
-
-                                <div class="w-full max-w-2xl" @click.away="isOpen = false">
-                                    <div class="relative bg-white rounded-full shadow-xl flex items-center px-5">
-                                        <input type="text" x-model="searchQuery" @keydown.escape="isOpen = false"
-                                            class="w-full px-6 py-6 text-xl border-0 focus:ring-0 focus:outline-none rounded-full"
-                                            placeholder="Search..." autofocus>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <!-- Search Results -->
-                                <div class="bg-white rounded-xl  px-6 py-4 border-t w-full max-w-2xl"
-                                    x-show="searchQuery.length > 0">
-                                    <template x-if="searchQuery.length > 0">
-                                        <div class="text-sm text-gray-500">
-                                            Search results for: <span class="font-medium" x-text="searchQuery"></span>
-                                        </div>
-                                    </template>
-                                </div>
-                            </div>
-                        </div>
-
+                        <button class="text-white hover:text-gray-300 transition duration-150">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.9592C17.2467 21.9592 21.5 17.7059 21.5 12.4592C21.5 7.21252 17.2467 2.95923 12 2.95923C6.75329 2.95923 2.5 7.21252 2.5 12.4592C2.5 17.7059 6.75329 21.9592 12 21.9592Z"
+                                    stroke="#192644" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path class="stroke-primaryDark" d="M22.5 22.9592L20.5 20.9592" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
                         <button
                             class="bg-primaryDark text-white px-5 xl:px-8 py-3 rounded-full hover:bg-primary transition duration-150">
                             Schedule Consultation
@@ -170,7 +122,7 @@
                     </button>
                 </div>
 
-                <div x-show="mobileMenuOpen" class="fixed top-0 right-0 bottom-0 w-[300px] bg-white z-40 lg:hidden"
+                <div x-show="mobileMenuOpen" class="fixed top-0 right-0 bottom-0 w-[300px] bg-white z-40 md:hidden"
                     x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full"
                     x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-300"
                     x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
@@ -185,16 +137,16 @@
                     </div>
 
 
-                    <div class="py-8 px-8 text-center">
+                    <div class="py-8 px-8">
                         <a href="index.html" class="w-full text-center">
                             <img src="assets/images/logo.svg" alt="" class="">
                         </a>
 
-                        <a href="index.html"
-                            class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold mt-10">Home</a>
+                        <a href="#"
+                            class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Home</a>
                         <div x-data="{ open: false }">
                             <button @click="open = !open"
-                                class="w-full flex justify-center items-center py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">
+                                class="w-full flex justify-between items-center py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">
                                 Practice Areas
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -217,65 +169,11 @@
                         </div>
                         <a href="about-us.html"
                             class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">About</a>
-                        <a href="blog.html"
-                            class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">blog</a>
-                        <a href="contactus.html"
+                        <a href="#"
                             class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact
                             us</a>
-                        <div x-data="{ isOpen: false, searchQuery: '' }">
-                            <button @click="isOpen = true"
-                                class="text-white hover:text-gray-300 transition duration-150">
-                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12 21.9592C17.2467 21.9592 21.5 17.7059 21.5 12.4592C21.5 7.21252 17.2467 2.95923 12 2.95923C6.75329 2.95923 2.5 7.21252 2.5 12.4592C2.5 17.7059 6.75329 21.9592 12 21.9592Z"
-                                        stroke="#192644" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path class="stroke-primaryDark" d="M22.5 22.9592L20.5 20.9592" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                            <div x-show="isOpen" x-transition:enter="transition ease-out duration-300"
-                                x-transition:enter-start="opacity-0 transform scale-95"
-                                x-transition:enter-end="opacity-100 transform scale-100"
-                                x-transition:leave="transition ease-in duration-200"
-                                x-transition:leave-start="opacity-100 transform scale-100"
-                                x-transition:leave-end="opacity-0 transform scale-95"
-                                class="fixed inset-0 z-50 flex flex-col items-center justify-center pt-16 px-4 sm:px-6 bg-black/80">
-                                <div class="absolute top-[20%] right-[20%] ">
-                                    <button @click="isOpen = false" class=" bg-white rounded-full transform ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="w-full max-w-2xl" @click.away="isOpen = false">
-                                    <div class="relative bg-white rounded-full shadow-xl flex items-center px-5">
-                                        <input type="text" x-model="searchQuery" @keydown.escape="isOpen = false"
-                                            class="w-full px-6 py-6 text-xl border-0 focus:ring-0 focus:outline-none rounded-full"
-                                            placeholder="Search..." autofocus>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <!-- Search Results -->
-                                <div class="bg-white rounded-xl  px-6 py-4 border-t w-full max-w-2xl"
-                                    x-show="searchQuery.length > 0">
-                                    <template x-if="searchQuery.length > 0">
-                                        <div class="text-sm text-gray-500">
-                                            Search results for: <span class="font-medium" x-text="searchQuery"></span>
-                                        </div>
-                                    </template>
-                                </div>
-                            </div>
-                        </div>
                         <button
-                            class="bg-primaryDark text-white w-full px-8 py-3 rounded-full hover:bg-primary transition duration-150 mt-3">
+                            class="bg-primaryDark text-white w-full px-8 py-3 rounded-full hover:bg-primary transition duration-150">
                             Schedule Consultation
                         </button>
                     </div>
@@ -291,7 +189,7 @@
             <div class="absolute top-0 w-full h-full bg-[#25304D]/80 "></div>
             <div class="relative z-10">
                 <div class="container ">
-                    <h2 class="text-3xl text-center font-semibold text-white">Privacy Policy</h2>
+                    <h2 class="text-3xl text-center font-semibold text-white">Family Based Immigration</h2>
                     <div class="flex justify-center items-center gap-3 text-white mt-4">
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -302,126 +200,247 @@
                                 fill="white" />
                         </svg>
                         /
-                        <p> Privacy Policy</p>
+                        <p> Family Based Immigration</p>
                     </div>
                 </div>
             </div>
         </div>
         <section class="relative mt-10">
             <div class="container">
-                <div class="mb-5">
-                    <h1 class="text-xl font-bold">Privacy Policy</h1>
-                    <p>
-                        At El Bahesh, we are committed to protecting your privacy and ensuring the security of the personal
-                        information you share with us. This policy outlines how we collect, use, and safeguard the data provided
-                        by visitors to our website, <u><a href="https://www.elbaheshlaw.com">www.elbaheshlaw.com</a></u>. By using our
-                        website, you agree to the practices described in this policy.
-                    </p>
+                <div class="flex gap-8 flex-col lg:flex-row">
+                    <div class="lg:w-1/4">
+                        <div class="bg-primaryDark p-8">
+                            <ul class="text-white space-y-5">
+                                <li>Immediate Relatives of U.S. Citizens</li>
+                                <li>Family Preference Categories</li>
+                                <li>Fiancé(e) Visas (K-1 Visa)</li>
+                                <li>Adjustment of Status</li>
+                                <li>Consular Processing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lg:w-3/4 space-y-7">
+                        <h1 class="text-2xl font-bold">Family-Based Immigration</h1>
+                        <div class="bg-accent/20 rounded-lg p-10 space-y-6">
+                            <h6 class="font-bold text-lg">Key Points to know</h6>
+                            <ul class="list-inside list-disc space-y-4">
+                                <li>Applicants whose petitions fall under immediate relative (IR) immigrants enjoy faster processing time than those who are family preference immigrants.</li>
+                                <li>Applicants whose petitions fall under immediate relative (IR) immigrants enjoy faster processing time than those who are family preference immigrants.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold mb-3">Keeping families together</h2>
+                            <p>We know how difficult it can be when families are separated, and how daunting the immigration process can seem. Many of our own team members have been sponsors of their family members or family-based immigrants themselves. Family-based immigration is one of the most rewarding facets of our practice and we are delighted to provide our personal touch in this life-changing process.  We can help you through every step of this process, from advising on your eligibility for family-based immigration classifications, to helping you file an application for full U.S. citizenship. We take pride in this part of our professional work and take satisfaction in seeing families settled and united.</p>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold mb-3">Immigrant Visas</h2>
+                            <p>To be eligible to immigrate to the United States through a family visa, a foreign national must have a direct relationship with a United States citizen or permanent resident, family applications normally fall under two categories:</p>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold mb-3">1. Immediate Relatives</h2>
+                            <h3 class="font-bold">This category is reserved for the “immediate relatives” of U.S. citizens, defined as:</h3>
+                            <ul class="font-bold mb-3">
+                                <li>📍Spouses of U.S. citizens</li>
+                                <li>📍Minor children of U.S. citizens (under the age of 21)</li>
+                                <li>📍Parents of U.S. citizens (providing that the citizen petitioner is at least 21 years of age).</li>
+                            </ul>
+                            <p>These types of petitions are never subject to annual quotas. There are no derivative visas available and thus separate petitions must be filed where necessary (e.g. a U.S. citizen sponsoring her spouse and foreign-national step child). Note: Special provisions exist for the spouses of deceased U.S. citizens.</p>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold mb-3">2. Preference Categories</h2>
+                            <h3 class="font-bold">This category is reserved for the “immediate relatives” of U.S. citizens, defined as:</h3>
+                            <ul class="font-bold mb-3">
+                                <li>📍Spouses of U.S. citizens</li>
+                                <li>📍Minor children of U.S. citizens (under the age of 21)</li>
+                                <li>📍Parents of U.S. citizens (providing that the citizen petitioner is at least 21 years of age).</li>
+                            </ul>
+                            <p>These types of petitions are never subject to annual quotas. There are no derivative visas available and thus separate petitions must be filed where necessary (e.g. a U.S. citizen sponsoring her spouse and foreign-national step child). Note: Special provisions exist for the spouses of deceased U.S. citizens.</p>
+                        </div>
+                        <div class="flex justify-between gap-7">
+                            <img src="assets/images/aboutUs.png" class="w-full rounded-xl h-auto max-h-[300px]" />
+                            <img src="assets/images/aboutUs.png" class="w-full rounded-xl h-auto max-h-[300px]" />
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-5">
-                    <h2 class="text-lg font-bold">Information Collection</h2>
-                    <p>
-                        We may collect non-personal information, such as your domain name and IP address, which helps us track
-                        the source from which you access our site. Additionally, we may collect data about the type of browser
-                        you are using, your operating system, how you arrived at our website, and which pages you visit while
-                        browsing. If you communicate with us regarding our website or services, we will gather the information
-                        you provide during those interactions. In the future, we may contact you via email to share updates,
-                        special offers, new services, or changes to this policy.
-                    </p>
+            </div>
+        </section>
+
+        <section class="relative mt-20">
+            <div class="container">
+                <div class="text-center mb-10">
+                    <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">FAQs</span>
+                    <h3 class="text-3xl font-bold mt-5">Frequently Asked Questions</h3>
                 </div>
-                <div class="mb-5">
-                    <h2 class="text-lg font-bold">Information Use </h2>
-                    <p>
-                        The information we collect is used mainly for internal purposes such as improving our website, providing
-                        better services, fulfilling your information requests, and supporting customer inquiries.
-                    </p>
+                <div class="lg:w-4/5 mx-auto mt-14">
+                    <span
+                        class="absolute -z-10  w-[130px] h-[130px] left-28 top-2/4 bg-accent/90 filter blur-[160px]"></span>
+
+                    <div x-data="{
+                faqs: [
+                    {
+                        question: 'What documents do I need for my initial consultation?',
+                        answer: 'For an immigration consultation, it\'s helpful to bring any relevant documents, such as passports, visas, notices from USCIS, prior applications, and any other immigration paperwork. This information allows me to understand your situation fully and provide accurate guidance on your next steps',
+                        isOpen: true
+                    },
+                    {
+                        question: 'What should I expect during an immigration consultation?',
+                        answer: 'Description here...',
+                        isOpen: false
+                    },
+                    {
+                        question: 'What are the requirements for U.S. citizenship?',
+                        answer: 'Description here...',
+                        isOpen: false
+                    },
+                    {
+                        question: 'Can you help if my visa application has been denied?',
+                        answer: 'Description here...',
+                        isOpen: false
+                    },
+                    {
+                        question: 'How can I check the status of my immigration application?',
+                        answer: 'Description here...',
+                        isOpen: false
+                    }
+                ]
+            }">
+                        <template x-for="(faq, index) in faqs" :key="index">
+                            <div class="pb-8 border-neutral/15 transition-all"
+                                :class="{'mb-8 border-b' : index !== faqs.length - 1}">
+                                <button @click="faqs = faqs.map((f, i) => ({ 
+                                ...f, 
+                                isOpen: i === index ? !f.isOpen : false
+                            }))"
+                                    class="group flex justify-between items-center w-full transition-all duration-500 ease-in-out">
+                                    <div x-text="faq.question"
+                                        class="text-2xl font-semibold text-primaryDark transition-colors duration-300">
+                                    </div>
+                                    <span
+                                        class="flex items-center justify-center w-6 h-6 rounded-full transition-all duration-500 ml-4"
+                                        :class="faq.isOpen ? 'bg-accent' : 'bg-primaryDark'">
+                                        <div class="plus-minus-icon" :class="{'minus': faq.isOpen}"></div>
+                                    </span>
+                                </button>
+                                <div x-show="faq.isOpen" x-cloak x-collapse
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 transform -translate-y-4"
+                                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                                    x-transition:leave="transition ease-in duration-300"
+                                    x-transition:leave-start="opacity-100 transform translate-y-0"
+                                    x-transition:leave-end="opacity-0 transform -translate-y-4"
+                                    class="accordion-content  transition-all">
+                                    <div class="mt-5  transition-all">
+                                        <p x-text="faq.answer"
+                                            class=" transition-all text-neutral text-xl leading-relaxed"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
                 </div>
-                <div class="mb-5">
-                    <h2 class="text-lg font-bold">Security </h2>
-                    <p>
-                        We implement industry-standard practices to protect the information submitted to us. If we collect
-                        sensitive information (e.g., credit card data), it is encrypted and transmitted securely. You can verify
-                        this by looking for a padlock icon in your browser or checking for "https" at the beginning of the URL.
-                    </p>
-                    <p>
-                        Additionally, we protect your data offline. Only employees who require access to your personal
-                        information to perform their job functions (e.g., billing or customer support) are granted access. The
-                        systems storing personal data are kept secure.
-                    </p>
-                </div>
-                <div class="mb-5">
-                    <h2 class="text-lg font-bold">Cookies</h2>
-                    <p>
-                        Our website uses "cookies," small data files stored on your device to enhance your browsing experience.
-                        Cookies allow us to identify returning visitors, improve site access, and personalize user experience by
-                        tracking and targeting user interests. Cookies are not linked to personally identifiable information.
-                    </p>
-                </div>
-                <div class="mb-5">
-                    <h2 class="text-lg font-bold">Sharing</h2>
-                    <p>
-                        We do not sell, rent, or share your personal information with third parties for marketing purposes. We
-                        may, however, disclose personal information or IP addresses when required by law or if we believe it is
-                        necessary to:
-                    </p>
-                    <ul class="list-inside list-disc">
-                        <li>Cooperate with investigations of suspected illegal activities.</li>
-                        <li>Protect the rights and property of El Bahesh.</li>
-                        <li>Identify individuals who are violating the law or misusing our website.</li>
-                    </ul>
-                    <p>
-                        Please note that if you voluntarily disclose personal information (e.g., through email, forums, or
-                        public pages), that information can be collected and used by others. Exercise caution when sharing
-                        personal data online.
-                    </p>
-                </div>
-                <div class="mb-5">
-                    <h2 class="text-lg font-bold">Links to Other Websites</h2>
-                    <p>
-                        Our website may contain links to third-party websites. We are not responsible for the content or privacy
-                        practices of these external sites. We encourage you to review the privacy policies of any websites that
-                        collect personal information.
-                    </p>
-                </div>
-                <div class="mb-5">
-                    <h2 class="text-lg font-bold">Surveys and Contests</h2>
-                    <p>
-                        Occasionally, we may offer surveys or contests. Participation is voluntary, and you may choose whether
-                        to provide the requested information. The data collected may include contact information (e.g., name,
-                        address) and demographic information (e.g., age, zip code). This information will be used to notify
-                        winners and enhance the user experience.
-                    </p>
-                </div>
-                <div class="mb-5">
-                    <h2 class="text-lg font-bold">Consent</h2>
-                    <p>
-                        By using our website, you consent to the collection and use of information as described in this policy.
-                        If there are any updates or changes to our privacy practices, they will be posted on this page. Please
-                        review this policy regularly to stay informed about how we collect, use, and protect your information.
-                    </p>
+            </div>
+        </section>
+
+
+        <section class="relative mt-20">
+            <div class="text-center">
+                <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Blog</span>
+                <h3 class="text-3xl font-bold mt-5 mb-10">News & Articles</h3>
+            </div>
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+
+                    <a href="blog-details.html" class="space-y-3 group">
+                        <div class="relative">
+                            <img src="assets/images/section1.png"
+                                class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover" alt="" />
+                            <div
+                                class=" group-hover:opacity-100 opacity-0 rounded-full flex bg-white px-4 py-2 absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                                <div
+                                    class="flex justify-center items-center gap-3 font-semibold text-sm text-primaryDark">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        class="stroke-primaryDark" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.6388 4.36874L5.03223 14.9753" stroke="currentColor"
+                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M7.10055 4.38644L15.6382 4.36806L15.6205 12.9064" stroke="currentColor"
+                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-neutral text-lg ">19 Dec 2024</p>
+                        <h4 class="text-primaryDark font-bold text-2xl">Legal Challenges in Immigration Linked to
+                            Trump’s Legacy
+                        </h4>
+                    </a>
+
+
+                    <a href="blog-details.html" class="space-y-3 group">
+                        <div class="relative">
+                            <img src="assets/images/section1.png"
+                                class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover" alt="" />
+                            <div
+                                class=" group-hover:opacity-100 opacity-0 rounded-full flex bg-white px-4 py-2 absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                                <div
+                                    class="flex justify-center items-center gap-3 font-semibold text-sm text-primaryDark">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        class="stroke-primaryDark" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.6388 4.36874L5.03223 14.9753" stroke="currentColor"
+                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M7.10055 4.38644L15.6382 4.36806L15.6205 12.9064" stroke="currentColor"
+                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-neutral text-lg ">19 Dec 2024</p>
+                        <h4 class="text-primaryDark font-bold text-2xl">Legal Challenges in Immigration Linked to
+                            Trump’s Legacy
+                        </h4>
+                    </a>
+
+                    <a href="blog-details.html" class="space-y-3 group">
+                        <div class="relative">
+                            <img src="assets/images/section1.png"
+                                class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover" alt="" />
+                            <div
+                                class=" group-hover:opacity-100 opacity-0 rounded-full flex bg-white px-4 py-2 absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                                <div
+                                    class="flex justify-center items-center gap-3 font-semibold text-sm text-primaryDark">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        class="stroke-primaryDark" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.6388 4.36874L5.03223 14.9753" stroke="currentColor"
+                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M7.10055 4.38644L15.6382 4.36806L15.6205 12.9064" stroke="currentColor"
+                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-neutral text-lg ">19 Dec 2024</p>
+                        <h4 class="text-primaryDark font-bold text-2xl">Legal Challenges in Immigration Linked to
+                            Trump’s Legacy
+                        </h4>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <div x-data="scrollToTop()" @scroll.window="handleScroll()" class="fixed bottom-8 right-8 z-50">
-        <button x-show="showButton" @click="scrollToTop()" x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
-            x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0"
-            x-transition:leave-end="opacity-0 translate-y-8"
-            class="bg-accent hover:bg-accent/95 text-white rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300 ease-in-out"
-            aria-label="Scroll to top">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-        </button>
-    </div>
-
-
     <footer class="bg-primaryDark text-white mt-32">
         <span>
-            <svg class="w-full h-full lg:h-[60%] 2xl:h-[550px] absolute -z-10" viewBox="0 0 1440 490" fill="none"
+            <svg class="w-full h-full lg:h-[60%] 2xl:h-[550px] absolute" viewBox="0 0 1440 490" fill="none"
                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <path opacity="0.03"
                     d="M0.286377 489.044C0.286377 489.044 400.921 497.268 754.75 326.396C1108.58 155.524 1440.29 142.299 1440.29 142.299V-19.375H0.286377V489.044Z"
@@ -436,7 +455,7 @@
             </svg>
         </span>
         <div class="container pt-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 items-start justify-center gap-10 lg:gap-20 pt-16 pb-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 items-start justify-center gap-10 lg:gap-20 py-16">
                 <div class="">
                     <img src="assets/images/logoWhite.png" class="" />
                     <div class="mt-6">
@@ -448,11 +467,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col gap-4 text-[#F4F4F4] lg:w-2/4 lg:mx-auto">
+                <div class="flex flex-col gap-4 text-white lg:w-2/4 lg:mx-auto">
                     <p class="font-bold text-white">Quick Links</p>
                     <a href="#">Practice Area</a>
                     <a href="about-us.html">About us</a>
-                    <a href="contactus.html">Contact us</a>
+                    <a href="#">Contact us</a>
                     <a href="#">Faqs</a>
                 </div>
                 <div class="flex flex-col gap-5 text-white">
@@ -523,44 +542,20 @@
                     </div>
                 </div>
             </div>
-            <p class="text-justify text-xs text-[#F4F4F4] py-8">
-                Attorney Advertising. This information is designed for general information only. The information
-                presented should not be construed to be formal legal advice nor the formation of a lawyer/client
-                relationship. Past results and testimonials are not a guarantee, warranty, or prediction of the outcome
-                of your case, and should not be construed as such. Past results cannot guarantee future performance. Any
-                result in a single case is not meant to create an expectation of similar results in future matters
-                because each case involves many different factors, therefore, results will differ on a case-by-case
-                basis. By providing contact information, users acknowledge and give explicit consent to be contacted via
-                the methods of communication provided, including SMS. Message and data rates may apply. Message
-                frequency may vary. Reply STOP to opt out.</p>
+            <p class="text-center lg:w-4/5 mx-auto py-5">
+                The information on this website is for general information purposes only. Nothing on this site should be
+                taken
+                as legal advice for any individual case or situation. This information is not intended to create, and
+                receipt or
+                viewing does not constitute, an attorney-client relationship.
+            </p>
             <hr class="text-lightGray/50" />
-            <div class="flex justify-between items-center">
-                <p class="py-5 text-center text-sm">© 2024 El-Bahesh Law Firm All rights are reserved.</p>
-                <div class="flex items-center space-x-8">
-                    <a>Site Search</a>
-                    <a>Privacy Policy</a>
-                </div>
-            </div>
+            <p class="py-5 text-center text-sm">© 2024 El-Bahesh Law Firm All rights are reserved.</p>
 
         </div>
     </footer>
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script>
-        document.documentElement.classList.add('scroll-smooth');
-
-        function scrollToTop() {
-            return {
-                showButton: false,
-                handleScroll() {
-                    this.showButton = window.pageYOffset > 300;
-                },
-                scrollToTop() {
-                    window.scrollTo({ top: 0 });
-                }
-            }
-        }
-    </script>
 </body>
 
 </html>
