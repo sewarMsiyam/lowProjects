@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="assets/css/output.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -74,31 +75,75 @@
               </button>
               <div x-show="open" @click.away="open = false"
                 class="absolute z-50 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
-                <a href="#"
+                <a href="signle-service.html"
                   class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   1</a>
-                <a href="#"
+                <a href="signle-service.html"
                   class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   2</a>
-                <a href="#"
+                <a href="signle-service.html"
                   class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   3</a>
               </div>
             </div>
-            <a href="#" class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Blog</a>
-            <a href="#" class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact us</a>
+            <a href="blog.html"
+              class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Blog</a>
+            <a href="contactus.html"
+              class="text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact us</a>
           </div>
           <div class="hidden lg:flex items-center space-x-6">
+
             <div class="hidden md:flex w-[1px] bg-[#ccc] h-10"></div>
-            <button class="text-white hover:text-gray-300 transition duration-150">
-              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M12 21.9592C17.2467 21.9592 21.5 17.7059 21.5 12.4592C21.5 7.21252 17.2467 2.95923 12 2.95923C6.75329 2.95923 2.5 7.21252 2.5 12.4592C2.5 17.7059 6.75329 21.9592 12 21.9592Z"
-                  stroke="#192644" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path class="stroke-primaryDark" d="M22.5 22.9592L20.5 20.9592" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
+
+            <div x-data="{ isOpen: false, searchQuery: '' }">
+              <button @click="isOpen = true" class="text-white hover:text-gray-300 transition duration-150">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 21.9592C17.2467 21.9592 21.5 17.7059 21.5 12.4592C21.5 7.21252 17.2467 2.95923 12 2.95923C6.75329 2.95923 2.5 7.21252 2.5 12.4592C2.5 17.7059 6.75329 21.9592 12 21.9592Z"
+                    stroke="#192644" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path class="stroke-primaryDark" d="M22.5 22.9592L20.5 20.9592" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div x-show="isOpen" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform scale-95"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-95"
+                class="fixed inset-0 z-50 flex flex-col items-center justify-center pt-16 px-4 sm:px-6 bg-black/80">
+                <div class="absolute top-[20%] right-[20%] ">
+                  <button @click="isOpen = false" class=" bg-white rounded-full transform ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+
+
+                <div class="w-full max-w-2xl" @click.away="isOpen = false">
+                  <div class="relative bg-white rounded-full shadow-xl flex items-center px-5">
+                    <input type="text" x-model="searchQuery" @keydown.escape="isOpen = false"
+                      class="w-full px-6 py-6 text-xl border-0 focus:ring-0 focus:outline-none rounded-full"
+                      placeholder="Search..." autofocus>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl  px-6 py-4 border-t w-full max-w-2xl" x-show="searchQuery.length > 0">
+                  <template x-if="searchQuery.length > 0">
+                    <div class="text-sm text-gray-500">
+                      Search results for: <span class="font-medium" x-text="searchQuery"></span>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </div>
+
             <button
               class="bg-primaryDark text-white px-5 xl:px-8 py-3 rounded-full hover:bg-primary transition duration-150">
               Schedule Consultation
@@ -112,7 +157,7 @@
           </button>
         </div>
 
-        <div x-show="mobileMenuOpen" class="fixed top-0 right-0 bottom-0 w-[300px] bg-white z-40 md:hidden"
+        <div x-show="mobileMenuOpen" class="fixed top-0 right-0 bottom-0 w-[300px] bg-white z-40 lg:hidden"
           x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full"
           x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-300"
           x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
@@ -126,16 +171,16 @@
           </div>
 
 
-          <div class="py-8 px-8">
+          <div class="py-8 px-8 text-center">
             <a href="index.html" class="w-full text-center">
               <img src="assets/images/logo.svg" alt="" class="">
             </a>
 
-            <a href="#"
-              class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Home</a>
+            <a href="index.html"
+              class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold mt-10">Home</a>
             <div x-data="{ open: false }">
               <button @click="open = !open"
-                class="w-full flex justify-between items-center py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">
+                class="w-full flex justify-center items-center py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">
                 Practice Areas
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -144,20 +189,70 @@
               <div x-show="open" x-transition:enter="transition ease-out duration-200"
                 x-transition:enter-start="opacity-0 transform -translate-y-2"
                 x-transition:enter-end="opacity-100 transform translate-y-0" class="pl-4">
-                <a href="#"
+                <a href="signle-service.html"
                   class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   1</a>
-                <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 2</a>
-                <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 3</a>
+                <a href="signle-service.html"
+                  class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 2</a>
+                <a href="signle-service.html"
+                  class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 3</a>
               </div>
             </div>
             <a href="about-us.html"
               class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">About</a>
-            <a href="#"
+            <a href="blog.html"
+              class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">blog</a>
+            <a href="contactus.html"
               class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Contact
               us</a>
+            <div x-data="{ isOpen: false, searchQuery: '' }">
+              <button @click="isOpen = true" class="text-white hover:text-gray-300 transition duration-150">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 21.9592C17.2467 21.9592 21.5 17.7059 21.5 12.4592C21.5 7.21252 17.2467 2.95923 12 2.95923C6.75329 2.95923 2.5 7.21252 2.5 12.4592C2.5 17.7059 6.75329 21.9592 12 21.9592Z"
+                    stroke="#192644" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path class="stroke-primaryDark" d="M22.5 22.9592L20.5 20.9592" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div x-show="isOpen" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform scale-95"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-95"
+                class="fixed inset-0 z-50 flex flex-col items-center justify-center pt-16 px-4 sm:px-6 bg-black/80">
+                <div class="absolute top-[20%] right-[20%] ">
+                  <button @click="isOpen = false" class=" bg-white rounded-full transform ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="w-full max-w-2xl" @click.away="isOpen = false">
+                  <div class="relative bg-white rounded-full shadow-xl flex items-center px-5">
+                    <input type="text" x-model="searchQuery" @keydown.escape="isOpen = false"
+                      class="w-full px-6 py-6 text-xl border-0 focus:ring-0 focus:outline-none rounded-full"
+                      placeholder="Search..." autofocus>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl  px-6 py-4 border-t w-full max-w-2xl" x-show="searchQuery.length > 0">
+                  <template x-if="searchQuery.length > 0">
+                    <div class="text-sm text-gray-500">
+                      Search results for: <span class="font-medium" x-text="searchQuery"></span>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </div>
             <button
-              class="bg-primaryDark text-white w-full px-8 py-3 rounded-full hover:bg-primary transition duration-150">
+              class="bg-primaryDark text-white w-full px-8 py-3 rounded-full hover:bg-primary transition duration-150 mt-3">
               Schedule Consultation
             </button>
           </div>
@@ -165,13 +260,15 @@
       </nav>
     </div>
   </header>
-  <main>
+
+  <main class="overflow-hidden">
+
     <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img src="assets/images/aboutUs.png" alt=""
         class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-bottom">
       <div class="absolute top-0 w-full h-full bg-[#25304D]/80 "></div>
       <div class="relative z-10">
-        <div class="container ">
+        <div class="container " data-aos="fade-up" data-aos-duration="1500">
           <h2 class="text-3xl text-center font-semibold text-white">About us</h2>
         </div>
       </div>
@@ -180,7 +277,7 @@
     <section class="relative mt-10 lg:mt-20">
       <div class="container">
         <div class="flex flex-col lg:flex-row justify-center gap-y-10 lg:gap-52">
-          <div class="col-span-2 order-2 lg:order-1 space-y-12 lg:w-[595px]">
+          <div class="col-span-2 order-2 lg:order-1 space-y-12 lg:w-[595px]" data-aos="fade-right">
             <span class="absolute w-[104px] h-[104px] left-[2%] top-[25%] bg-accent filter blur-[120px]"></span>
 
             <div class="space-y-4">
@@ -213,93 +310,130 @@
             </div>
             <div class="space-y-4">
               <h3 class="text-xl font-bold ">Professional Associations &Memberships</h3>
-              <div>
-
-              </div>
             </div>
 
           </div>
-          <div class="order-1 lg:order-2 text-center">
+          <div class="order-1 lg:order-2 text-center" data-aos="fade-left">
             <img src="assets/images/low.png"
               class="mx-auto object-contain rounded-[30px] w-96 h-[350px] lg:h-[460px]" />
           </div>
         </div>
       </div>
-      <div class="w-full mx-auto container">
+      <div class="w-full mx-auto container" data-aos="fade-up">
         <div x-data="{
-            activeSlide: 0,
-            isDragging: false,
-            startPos: 0,
-            currentTranslate: 0,
-            prevTranslate: 0,
-            slides: [
-                {
-                    image: 'assets/images/1.png',
-                },
-                {
-                    image: 'assets/images/2.png',
-                },
-                {
-                  image: 'assets/images/1.png',
-                },
-                {
-                  image: 'assets/images/2.png',
-                },
-                {
-                  image: 'assets/images/1.png',
-                },
-                {
-                  image: 'assets/images/1.png',
-              },
-            ],
-            get maxSlide() {
-                return this.slides.length - 4.5;
-            },
-            touchStart(e) {
-                this.isDragging = true;
-                this.startPos = this.getPositionX(e);
-                this.prevTranslate = this.currentTranslate;
-            },
-            touchMove(e) {
-                if (!this.isDragging) return;
-                const currentPosition = this.getPositionX(e);
-                const diff = currentPosition - this.startPos;
-                this.currentTranslate = this.prevTranslate + diff;
-                // Limit the drag
-                const maxTranslate = -(this.maxSlide * (100/4.5));
-                this.currentTranslate = Math.max(Math.min(this.currentTranslate, 0), maxTranslate);
-            },
-            touchEnd() {
-                this.isDragging = false;
-                const slideWidth = 100/4.5;
-                const slideIndex = Math.round(Math.abs(this.currentTranslate) / slideWidth);
-                this.activeSlide = Math.min(Math.max(slideIndex, 0), this.maxSlide);
-                this.currentTranslate = -(this.activeSlide * slideWidth);
-                this.prevTranslate = this.currentTranslate;
-            },
-            getPositionX(e) {
-                return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            }
-        }" class="relative overflow-hidden">
+          activeSlide: 0,
+          isDragging: false,
+          startPos: 0,
+          currentTranslate: 0,
+          prevTranslate: 0,
+          slidesPerView: {
+              'sm': 1.5,  // mobile
+              'md': 2.5,  // tablet
+              'lg': 3.5,  // laptop
+              'xl': 4.5   // desktop
+          },
+          currentSlidesPerView: 4.5,
+          slides: [
+              { image: 'assets/images/1.png' },
+              { image: 'assets/images/2.png' },
+              { image: 'assets/images/1.png' },
+              { image: 'assets/images/2.png' },
+              { image: 'assets/images/1.png' },
+              { image: 'assets/images/1.png' }
+          ],
+          init() {
+              this.updateSlidesPerView();
+              window.addEventListener('resize', () => this.updateSlidesPerView());
+          },
+          updateSlidesPerView() {
+              if (window.innerWidth < 640) {
+                  this.currentSlidesPerView = this.slidesPerView.sm;
+              } else if (window.innerWidth < 768) {
+                  this.currentSlidesPerView = this.slidesPerView.md;
+              } else if (window.innerWidth < 1024) {
+                  this.currentSlidesPerView = this.slidesPerView.lg;
+              } else {
+                  this.currentSlidesPerView = this.slidesPerView.xl;
+              }
+              // Reset position when screen size changes
+              this.activeSlide = 0;
+              this.currentTranslate = 0;
+              this.prevTranslate = 0;
+          },
+          get maxSlide() {
+              return Math.max(0, this.slides.length - this.currentSlidesPerView);
+          },
+          touchStart(e) {
+              this.isDragging = true;
+              this.startPos = this.getPositionX(e);
+              this.prevTranslate = this.currentTranslate;
+          },
+          touchMove(e) {
+              if (!this.isDragging) return;
+              const currentPosition = this.getPositionX(e);
+              const diff = currentPosition - this.startPos;
+              this.currentTranslate = this.prevTranslate + (diff / window.innerWidth * 100);
+              
+              // Limit the drag with some elasticity
+              const maxTranslate = -(this.maxSlide * (100/this.currentSlidesPerView));
+              if (this.currentTranslate > 0) {
+                  this.currentTranslate = this.currentTranslate * 0.5;
+              } else if (this.currentTranslate < maxTranslate) {
+                  this.currentTranslate = maxTranslate + (this.currentTranslate - maxTranslate) * 0.5;
+              }
+          },
+          touchEnd() {
+              this.isDragging = false;
+              const slideWidth = 100/this.currentSlidesPerView;
+              const slideIndex = Math.round(Math.abs(this.currentTranslate) / slideWidth);
+              this.activeSlide = Math.min(Math.max(slideIndex, 0), this.maxSlide);
+              this.currentTranslate = -(this.activeSlide * slideWidth);
+              this.prevTranslate = this.currentTranslate;
+          },
+          getPositionX(e) {
+              return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+          },
+          next() {
+              if (this.activeSlide < this.maxSlide) {
+                  this.activeSlide++;
+                  const slideWidth = 100/this.currentSlidesPerView;
+                  this.currentTranslate = -(this.activeSlide * slideWidth);
+                  this.prevTranslate = this.currentTranslate;
+              }
+          },
+          prev() {
+              if (this.activeSlide > 0) {
+                  this.activeSlide--;
+                  const slideWidth = 100/this.currentSlidesPerView;
+                  this.currentTranslate = -(this.activeSlide * slideWidth);
+                  this.prevTranslate = this.currentTranslate;
+              }
+          }
+      }" class="relative overflow-hidden" @keydown.left="prev" @keydown.right="next">
           <div class="slider-container overflow-hidden" @mousedown="touchStart" @touchstart="touchStart"
             @mouseup="touchEnd" @touchend="touchEnd" @mouseleave="isDragging && touchEnd()" @mousemove="touchMove"
             @touchmove="touchMove">
             <div class="flex gap-4 transition-transform duration-300 ease-out pl-4"
-              :style="`transform: translateX(${currentTranslate}%)`">
+              :style="`transform: translateX(${currentTranslate}%)`" :class="{ 'cursor-grabbing': isDragging }">
               <template x-for="(slide, index) in slides" :key="index">
-                <div class="slide-item">
-                  <div class="bg-white rounded-xl shadow-md overflow-hidden m-2 flex justify-center items-center w-full h-36 border-l-8 border-b-8 border-accent">
-                    <div class="relative aspect-video flex justify-center items-center ">
-                      <img :src="slide.image" :alt="slide.title" class="mx-auto p-3 object-contain" draggable="false" />
+                <div class="slide-item" :style="`width: calc(100% / ${currentSlidesPerView})`">
+                  <div
+                    class="bg-white rounded-xl shadow-md overflow-hidden m-2 flex justify-center items-center w-full h-36 border-l-8 border-b-8 border-accent">
+                    <div class="relative aspect-video flex justify-center items-center">
+                      <img :src="slide.image" :alt="'Slide ' + (index + 1)" class="mx-auto p-3 object-contain"
+                        draggable="false" />
                     </div>
                   </div>
                 </div>
               </template>
             </div>
           </div>
+
+          <!-- Progress Bar -->
           <div class="mt-2 h-1 bg-gray-200 rounded-full overflow-hidden">
             <div class="h-full bg-accent transition-all duration-300"
-              :style="`width: ${(activeSlide / maxSlide) * 100}%`"></div>
+              :style="`width: ${(activeSlide / maxSlide) * 100}%`">
+            </div>
           </div>
         </div>
       </div>
@@ -307,14 +441,17 @@
 
       <div class="absolute right-0 -bottom-10 -z-10">
         <svg width="308" height="840" viewBox="0 0 308 840" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0.421875 87.6428L11.1133 99.5251L15.4948 110.714V110.759L11.1933 128.4L18.2498 150.432L26.0351 184.346L26.7638 218.118L36.5933 278.978L25.9285 307.889L35.2513 357.373L75.2532 472.242L49.3466 627.691L62.9532 635.725L59.256 739.689L52.395 838.009L237.18 839.529L228.666 718.67L238.336 700.842L234.283 661.756L241.375 649.918L230.275 572.482L244.433 543.99L272.072 520.776L283.857 509.925L300.085 483.138L297.303 468.278L307.915 444.22L303.756 437.902L261.301 418.136L243.668 444.22L218.944 425.113L203.382 375.672L182.052 360.679L173.005 333.315L166.313 309.675L172.721 286.044L175.067 281.52L214.562 273.024L174.418 268.5L173.378 264.723L209.416 242.185L166.437 253.64L163.016 248.921L181.021 212.981L149.88 243.402L141.046 241.518L133.421 192.416L127.617 241.474L118.401 244.069L84.1049 211.897L103.755 249.206L100.564 254.547L60.0203 238.176L95.303 263.736L94.5743 267.94L54.679 264.332L94.2899 279.689L106.305 308.146L101.577 328.694L92.1658 323.699L78.6748 299.872L80.3367 280.462L73.2802 277.174L67.4768 256.707L66.4103 241.518L46.867 160.892L45.9161 125.565L40.7703 110.883L47.0003 100.289L60.4736 87.3584V78.871L39.8993 64.9001L41.8368 56.5993L47.8447 47.3476L49.2488 33.1545L44.1119 22.8896L41.5791 29.5818L32.7095 0.0402832L21.5381 24.1783L15.8147 14.0112L11.5665 33.7855L14.0016 49.8271L17.0145 54.5552L22.3025 64.8112L0.421875 78.5866V87.6428Z" fill="url(#paint0_linear_497_310)"/>
+          <path
+            d="M0.421875 87.6428L11.1133 99.5251L15.4948 110.714V110.759L11.1933 128.4L18.2498 150.432L26.0351 184.346L26.7638 218.118L36.5933 278.978L25.9285 307.889L35.2513 357.373L75.2532 472.242L49.3466 627.691L62.9532 635.725L59.256 739.689L52.395 838.009L237.18 839.529L228.666 718.67L238.336 700.842L234.283 661.756L241.375 649.918L230.275 572.482L244.433 543.99L272.072 520.776L283.857 509.925L300.085 483.138L297.303 468.278L307.915 444.22L303.756 437.902L261.301 418.136L243.668 444.22L218.944 425.113L203.382 375.672L182.052 360.679L173.005 333.315L166.313 309.675L172.721 286.044L175.067 281.52L214.562 273.024L174.418 268.5L173.378 264.723L209.416 242.185L166.437 253.64L163.016 248.921L181.021 212.981L149.88 243.402L141.046 241.518L133.421 192.416L127.617 241.474L118.401 244.069L84.1049 211.897L103.755 249.206L100.564 254.547L60.0203 238.176L95.303 263.736L94.5743 267.94L54.679 264.332L94.2899 279.689L106.305 308.146L101.577 328.694L92.1658 323.699L78.6748 299.872L80.3367 280.462L73.2802 277.174L67.4768 256.707L66.4103 241.518L46.867 160.892L45.9161 125.565L40.7703 110.883L47.0003 100.289L60.4736 87.3584V78.871L39.8993 64.9001L41.8368 56.5993L47.8447 47.3476L49.2488 33.1545L44.1119 22.8896L41.5791 29.5818L32.7095 0.0402832L21.5381 24.1783L15.8147 14.0112L11.5665 33.7855L14.0016 49.8271L17.0145 54.5552L22.3025 64.8112L0.421875 78.5866V87.6428Z"
+            fill="url(#paint0_linear_497_310)" />
           <defs>
-          <linearGradient id="paint0_linear_497_310" x1="154.168" y1="457.264" x2="154.168" y2="839.529" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#EBEBEB"/>
-          <stop offset="1" stop-color="#ECECEC"/>
-          </linearGradient>
+            <linearGradient id="paint0_linear_497_310" x1="154.168" y1="457.264" x2="154.168" y2="839.529"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#EBEBEB" />
+              <stop offset="1" stop-color="#ECECEC" />
+            </linearGradient>
           </defs>
-          </svg>          
+        </svg>
       </div>
     </section>
 
@@ -322,10 +459,7 @@
 
 
 
-
-
-
-    <section class="relative mt-20">
+    <section class="relative mt-20" data-aos="fade-up" data-aos-duration="1500">
       <div class="text-center">
         <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Values</span>
         <h3 class="text-3xl font-bold mt-5 mb-10">Our Values</h3>
@@ -358,7 +492,7 @@
       </div>
     </section>
 
-    <section class="relative mt-20">
+    <section class="relative mt-20" data-aos="fade-up" data-aos-duration="1500">
       <div class="text-center mb-36">
         <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Services</span>
         <h3 class="text-3xl font-bold mt-5 mb-10">Our Services</h3>
@@ -458,7 +592,7 @@
       </div>
     </section>
 
-    <section class="relative mt-40">
+    <section class="relative mt-40" data-aos="fade-up" data-aos-duration="1500">
       <div class="container mx-auto">
         <div class="relative isolate overflow-hidden bg-gray-900 py-24 rounded-[40px]">
           <img src="assets/images/aboutUs.png" alt=""
@@ -466,7 +600,7 @@
           <div class="absolute top-0 w-full h-full bg-[#25304D]/80 "></div>
           <div class="relative z-10">
             <div class="container ">
-              <div class="flex items-center justify-between w-[85%] mx-auto">
+              <div class="flex flex-col lg:flex-row gap-5 items-center justify-between w-[100%] lg:w-[85%] mx-auto">
                 <div>
                   <h2 class="text-white text-3xl mb-3">Keep your family together and worry-free!</h2>
                   <p class="text-white/70 text-xl">Every case is special and a top priority for us Contact Now!</p>
@@ -483,7 +617,7 @@
       </div>
     </section>
 
-    <section class="relative mt-20">
+    <section class="relative mt-20" data-aos="fade-up" data-aos-duration="1500">
       <div class="text-center">
         <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Blog</span>
         <h3 class="text-3xl font-bold mt-5 mb-10">News & Articles</h3>
@@ -518,120 +652,142 @@
       </div>
     </section>
 
-  </main>
-
-  <footer class="bg-primaryDark text-white mt-32">
-    <span>
-      <svg class="w-full h-full lg:h-[60%] 2xl:h-[550px] absolute" viewBox="0 0 1440 490" fill="none"
-        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path opacity="0.03"
-          d="M0.286377 489.044C0.286377 489.044 400.921 497.268 754.75 326.396C1108.58 155.524 1440.29 142.299 1440.29 142.299V-19.375H0.286377V489.044Z"
-          fill="url(#paint0_linear_336_874)" />
-        <defs>
-          <linearGradient id="paint0_linear_336_874" x1="232.126" y1="210.459" x2="376.511" y2="605.409"
-            gradientUnits="userSpaceOnUse">
-            <stop stop-color="#EEE6D1" />
-            <stop offset="1" stop-color="#EFCB8F" />
-          </linearGradient>
-        </defs>
+    <button x-data="{ showButton: false }" @scroll.window="showButton = window.pageYOffset > 300"
+      @click="window.scrollTo({ top: 0 })" x-show="showButton" x-transition.duration.300ms
+      class="fixed bottom-8 right-8 z-50 bg-accent hover:accent/95 text-white rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300 ease-in-out"
+      aria-label="Scroll to top">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
       </svg>
-    </span>
-    <div class="container pt-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 items-start justify-center gap-10 lg:gap-20 py-16">
-        <div class="">
-          <img src="assets/images/logoWhite.png" class="" />
-          <div class="mt-6">
-            <label class="font-Mundial font-semibold " for="Email">Book a Consultation</label>
-            <div class="bg-white flex rounded-full py-1 px-3 ps-5 mt-3 w-[347px]">
-              <input id="Email" placeholder="Your Email"
-                class="w-full text-primaryDark focus:outline-none focus-visible:outline-none" />
-              <button class="bg-primaryDark rounded-full py-2 px-4">Schedule</button>
+    </button>
+
+    <footer class="bg-primaryDark text-white mt-32">
+      <span>
+        <svg class="w-full h-full lg:h-[60%] 2xl:h-[550px] absolute -z-10" viewBox="0 0 1440 490" fill="none"
+          xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path opacity="0.03"
+            d="M0.286377 489.044C0.286377 489.044 400.921 497.268 754.75 326.396C1108.58 155.524 1440.29 142.299 1440.29 142.299V-19.375H0.286377V489.044Z"
+            fill="url(#paint0_linear_336_874)" />
+          <defs>
+            <linearGradient id="paint0_linear_336_874" x1="232.126" y1="210.459" x2="376.511" y2="605.409"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#EEE6D1" />
+              <stop offset="1" stop-color="#EFCB8F" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <div class="container pt-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 items-start justify-center gap-10 lg:gap-20 pt-16 pb-10">
+          <div class="">
+            <img src="assets/images/logoWhite.png" class="" />
+            <div class="mt-6">
+              <label class="font-Mundial font-semibold " for="Email">Book a Consultation</label>
+              <div class="bg-white flex rounded-full py-1 px-3 ps-5 mt-3 w-[347px]">
+                <input id="Email" placeholder="Your Email"
+                  class="w-full text-primaryDark focus:outline-none focus-visible:outline-none" />
+                <button class="bg-primaryDark rounded-full py-2 px-4">Schedule</button>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 text-[#F4F4F4] lg:w-2/4 lg:mx-auto">
+            <p class="font-bold text-white">Quick Links</p>
+            <a href="">Practice Area</a>
+            <a href="about-us.html">About us</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="index.html#FAQs">Faqs</a>
+          </div>
+          <div class="flex flex-col gap-5 text-white">
+            <h3 class="font-bold text-white">Contact Information</h3>
+            <div class="flex gap-2">
+              <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18.2872 7.28496C17.2372 2.66496 13.2072 0.584961 9.66721 0.584961C9.66721 0.584961 9.66721 0.584961 9.65721 0.584961C6.12721 0.584961 2.08721 2.65496 1.03721 7.27496C-0.13279 12.435 3.02721 16.805 5.88721 19.555C6.94721 20.575 8.30721 21.085 9.66721 21.085C11.0272 21.085 12.3872 20.575 13.4372 19.555C16.2972 16.805 19.4572 12.445 18.2872 7.28496ZM9.66721 12.295C7.92721 12.295 6.51721 10.885 6.51721 9.14496C6.51721 7.40496 7.92721 5.99496 9.66721 5.99496C11.4072 5.99496 12.8172 7.40496 12.8172 9.14496C12.8172 10.885 11.4072 12.295 9.66721 12.295Z"
+                  fill="white" />
+              </svg>
+              <p>132 Street, Kingston, New York 12401 US</p>
+            </div>
+
+            <a href="" class="flex gap-2">
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.5956 17.9551C8.7345 16.3432 2.83491 10.5615 1.27608 6.73017C0.62897 5.30364 0.62357 4.12732 1.26528 3.24351C1.52088 2.8286 2.97711 1.09518 4.28123 1.15008C4.67149 1.20239 5.03089 1.39037 5.29644 1.68108C6.10434 2.51397 6.78597 3.46062 7.31968 4.49093C7.38694 5.0078 7.25075 5.53059 6.93987 5.94895C6.69957 6.37016 6.05606 7.16757 6.21986 7.63288C7.30006 10.0442 9.26221 11.9507 11.7036 12.961C12.1591 13.1266 12.9556 12.484 13.375 12.241C13.7912 11.9284 14.3133 11.7914 14.8294 11.8593C15.8577 12.4085 16.8011 13.1036 17.6302 13.9231C17.9184 14.1874 18.1047 14.5444 18.1567 14.932C18.2054 16.2658 16.3927 17.7886 16.0624 17.9785C15.6194 18.2957 15.0861 18.462 14.5414 18.4529C13.8644 18.43 13.2004 18.2602 12.5956 17.9551ZM14.1391 7.59148C14.0224 6.97931 13.7247 6.41622 13.2846 5.975C12.8445 5.53377 12.2822 5.2347 11.6703 5.11644C11.4688 5.07741 11.2909 4.95991 11.176 4.78977C11.0611 4.61963 11.0184 4.41081 11.0574 4.20923C11.0965 4.00764 11.214 3.82982 11.3841 3.71488C11.5542 3.59994 11.7631 3.55729 11.9647 3.59632C12.8791 3.77326 13.7194 4.22029 14.3772 4.87968C15.035 5.53907 15.48 6.38053 15.6547 7.29537C15.6934 7.49685 15.651 7.70545 15.5368 7.87584C15.4225 8.04622 15.2456 8.16462 15.0445 8.20529C14.9952 8.21418 14.9452 8.2187 14.8951 8.21879C14.716 8.21787 14.5427 8.15484 14.4048 8.04045C14.267 7.92605 14.173 7.76738 14.1391 7.59148ZM17.2495 7.52398C17.0989 6.11224 16.4698 4.79452 15.4669 3.78962C14.464 2.78473 13.1475 2.15312 11.736 1.99969C11.5836 1.98168 11.4399 1.91888 11.323 1.81922C11.2062 1.71957 11.1216 1.58753 11.0798 1.43979C11.038 1.29205 11.0409 1.13524 11.0882 0.98916C11.1355 0.843083 11.225 0.714296 11.3454 0.619068C11.4234 0.555667 11.5136 0.508906 11.6103 0.481663C11.707 0.454421 11.8083 0.447275 11.908 0.460665C13.6682 0.651918 15.3101 1.43976 16.5606 2.69326C17.8112 3.94676 18.5951 5.59045 18.7823 7.35118C18.7939 7.45202 18.7855 7.55418 18.7576 7.65178C18.7297 7.74938 18.6828 7.84051 18.6196 7.91995C18.5564 7.99938 18.4781 8.06556 18.3892 8.11468C18.3004 8.1638 18.2027 8.1949 18.1019 8.20619C18.072 8.21012 18.0419 8.21193 18.0118 8.21159C17.8225 8.2107 17.6401 8.14009 17.4995 8.01326C17.3589 7.88642 17.2699 7.71225 17.2495 7.52398Z"
+                  fill="white" />
+              </svg>
+              <p>(312) 803-3665</p>
+            </a>
+
+            <a href="mo" class="flex gap-2">
+              <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.7263 18.5283H5.84735C4.50717 18.528 3.2218 17.9962 2.27321 17.0495C1.32463 16.1028 0.790266 14.8185 0.787354 13.4783L0.787354 5.57832C0.790266 4.23814 1.32463 2.95383 2.27321 2.00711C3.2218 1.0604 4.50717 0.528582 5.84735 0.52832L15.7263 0.52832C17.0682 0.530888 18.3548 1.06314 19.3063 2.00932C19.7771 2.47662 20.1504 3.03271 20.4046 3.64536C20.6588 4.258 20.7889 4.91502 20.7873 5.57832V13.4783C20.7844 14.8187 20.2499 16.1031 19.3011 17.0499C18.3523 17.9966 17.0667 18.5283 15.7263 18.5283ZM4.82135 5.77432C4.72179 5.77343 4.6231 5.79284 4.53129 5.83135C4.43948 5.86986 4.35648 5.92667 4.28735 5.99832C4.15694 6.12843 4.07794 6.30129 4.06489 6.48504C4.05185 6.6688 4.10564 6.85108 4.21635 6.99831L4.34735 7.12831L8.89735 10.6783C9.45166 11.1191 10.1391 11.3589 10.8473 11.3583C11.5576 11.3567 12.2469 11.1173 12.8053 10.6783L17.3173 7.06832L17.3973 6.98832C17.5139 6.84714 17.5767 6.66921 17.5745 6.48612C17.5723 6.30303 17.5053 6.12665 17.3853 5.98832C17.247 5.84014 17.0592 5.74767 16.8573 5.72832H16.8153C16.6233 5.72701 16.4379 5.79847 16.2963 5.92832L11.7873 9.52831C11.5062 9.76129 11.1525 9.88864 10.7873 9.88831C10.4226 9.88641 10.0696 9.75932 9.78735 9.52831L5.28735 5.92832C5.1527 5.82805 4.98923 5.77403 4.82135 5.77432Z"
+                  fill="white" />
+              </svg>
+              <p>info@elbaheshlawfirm.com</p>
+            </a>
+
+            <div class="flex gap-5 mt-7">
+              <a href=""
+                class="size-10 border border-white rounded-full flex justify-center items-center hover:bg-white hover:text-primaryDark">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M6.58838 9.67773V13.5349H9.48124V20.2849H13.3384V13.5349H16.2312L17.1955 9.67773H13.3384V7.74916C13.3384 7.49342 13.44 7.24815 13.6208 7.06731C13.8017 6.88647 14.0469 6.78488 14.3027 6.78488H17.1955V2.92773H14.3027C13.0239 2.92773 11.7976 3.4357 10.8934 4.3399C9.98921 5.24409 9.48124 6.47044 9.48124 7.74916V9.67773H6.58838Z"
+                    fill="currentColor" />
+                </svg>
+              </a>
+              <a href=""
+                class="size-10 border border-white rounded-full flex justify-center items-center hover:bg-white hover:text-primaryDark">
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.66653 6.65291C8.01394 6.65291 6.6653 8.00154 6.6653 9.65413C6.6653 11.3067 8.01394 12.6553 9.66653 12.6553C11.3191 12.6553 12.6677 11.3067 12.6677 9.65413C12.6677 8.00154 11.3191 6.65291 9.66653 6.65291ZM18.6679 9.65413C18.6679 8.41131 18.6792 7.17975 18.6094 5.93919C18.5396 4.49824 18.2109 3.2194 17.1572 2.16571C16.1013 1.10977 14.8247 0.783301 13.3837 0.713505C12.1409 0.643709 10.9093 0.654967 9.66878 0.654967C8.42596 0.654967 7.1944 0.643709 5.95384 0.713505C4.51289 0.783301 3.23405 1.11202 2.18036 2.16571C1.12441 3.22165 0.797949 4.49824 0.728153 5.93919C0.658358 7.182 0.669615 8.41356 0.669615 9.65413C0.669615 10.8947 0.658358 12.1285 0.728153 13.3691C0.797949 14.81 1.12667 16.0889 2.18036 17.1425C3.2363 18.1985 4.51289 18.525 5.95384 18.5948C7.19665 18.6645 8.42821 18.6533 9.66878 18.6533C10.9116 18.6533 12.1432 18.6645 13.3837 18.5948C14.8247 18.525 16.1035 18.1962 17.1572 17.1425C18.2131 16.0866 18.5396 14.81 18.6094 13.3691C18.6814 12.1285 18.6679 10.8969 18.6679 9.65413V9.65413ZM9.66653 14.2719C7.1111 14.2719 5.04874 12.2096 5.04874 9.65413C5.04874 7.0987 7.1111 5.03634 9.66653 5.03634C12.222 5.03634 14.2843 7.0987 14.2843 9.65413C14.2843 12.2096 12.222 14.2719 9.66653 14.2719ZM14.4734 5.92568C13.8768 5.92568 13.395 5.44386 13.395 4.84722C13.395 4.25058 13.8768 3.76876 14.4734 3.76876C15.0701 3.76876 15.5519 4.25058 15.5519 4.84722C15.5521 4.9889 15.5243 5.12921 15.4702 5.26014C15.416 5.39106 15.3366 5.51002 15.2364 5.6102C15.1362 5.71038 15.0173 5.78981 14.8864 5.84395C14.7554 5.89808 14.6151 5.92586 14.4734 5.92568V5.92568Z"
+                    fill="currentColor" />
+                </svg>
+              </a>
+              <a href=""
+                class="size-10 border border-white rounded-full flex justify-center items-center hover:bg-white hover:text-primaryDark">
+                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_336_916)">
+                    <path
+                      d="M13.3084 0.0078125H15.8583L10.2874 6.37501L16.8412 15.0393H11.7096L7.69042 9.78446L3.09157 15.0393H0.540036L6.49872 8.2289L0.21167 0.0078125H5.47344L9.10645 4.81098L13.3084 0.0078125ZM12.4134 13.5131H13.8264L4.70572 1.45391H3.18945L12.4134 13.5131Z"
+                      fill="currentColor" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_336_916">
+                      <rect width="16.6295" height="15.0331" fill="white" transform="translate(0.211182 0.00683594)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-        <div class="flex flex-col gap-4 text-white lg:w-2/4 lg:mx-auto">
-          <p class="font-bold text-white">Quick Links</p>
-          <a href="#">Practice Area</a>
-          <a href="#">About us</a>
-          <a href="#">Contact us</a>
-          <a href="#">Faqs</a>
-        </div>
-        <div class="flex flex-col gap-5 text-white">
-          <h3 class="font-bold text-white">Contact Information</h3>
-          <div class="flex gap-2">
-            <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M18.2872 7.28496C17.2372 2.66496 13.2072 0.584961 9.66721 0.584961C9.66721 0.584961 9.66721 0.584961 9.65721 0.584961C6.12721 0.584961 2.08721 2.65496 1.03721 7.27496C-0.13279 12.435 3.02721 16.805 5.88721 19.555C6.94721 20.575 8.30721 21.085 9.66721 21.085C11.0272 21.085 12.3872 20.575 13.4372 19.555C16.2972 16.805 19.4572 12.445 18.2872 7.28496ZM9.66721 12.295C7.92721 12.295 6.51721 10.885 6.51721 9.14496C6.51721 7.40496 7.92721 5.99496 9.66721 5.99496C11.4072 5.99496 12.8172 7.40496 12.8172 9.14496C12.8172 10.885 11.4072 12.295 9.66721 12.295Z"
-                fill="white" />
-            </svg>
-            <p>132 Street, Kingston, New York 12401 US</p>
-          </div>
-
-          <a href="" class="flex gap-2">
-            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12.5956 17.9551C8.7345 16.3432 2.83491 10.5615 1.27608 6.73017C0.62897 5.30364 0.62357 4.12732 1.26528 3.24351C1.52088 2.8286 2.97711 1.09518 4.28123 1.15008C4.67149 1.20239 5.03089 1.39037 5.29644 1.68108C6.10434 2.51397 6.78597 3.46062 7.31968 4.49093C7.38694 5.0078 7.25075 5.53059 6.93987 5.94895C6.69957 6.37016 6.05606 7.16757 6.21986 7.63288C7.30006 10.0442 9.26221 11.9507 11.7036 12.961C12.1591 13.1266 12.9556 12.484 13.375 12.241C13.7912 11.9284 14.3133 11.7914 14.8294 11.8593C15.8577 12.4085 16.8011 13.1036 17.6302 13.9231C17.9184 14.1874 18.1047 14.5444 18.1567 14.932C18.2054 16.2658 16.3927 17.7886 16.0624 17.9785C15.6194 18.2957 15.0861 18.462 14.5414 18.4529C13.8644 18.43 13.2004 18.2602 12.5956 17.9551ZM14.1391 7.59148C14.0224 6.97931 13.7247 6.41622 13.2846 5.975C12.8445 5.53377 12.2822 5.2347 11.6703 5.11644C11.4688 5.07741 11.2909 4.95991 11.176 4.78977C11.0611 4.61963 11.0184 4.41081 11.0574 4.20923C11.0965 4.00764 11.214 3.82982 11.3841 3.71488C11.5542 3.59994 11.7631 3.55729 11.9647 3.59632C12.8791 3.77326 13.7194 4.22029 14.3772 4.87968C15.035 5.53907 15.48 6.38053 15.6547 7.29537C15.6934 7.49685 15.651 7.70545 15.5368 7.87584C15.4225 8.04622 15.2456 8.16462 15.0445 8.20529C14.9952 8.21418 14.9452 8.2187 14.8951 8.21879C14.716 8.21787 14.5427 8.15484 14.4048 8.04045C14.267 7.92605 14.173 7.76738 14.1391 7.59148ZM17.2495 7.52398C17.0989 6.11224 16.4698 4.79452 15.4669 3.78962C14.464 2.78473 13.1475 2.15312 11.736 1.99969C11.5836 1.98168 11.4399 1.91888 11.323 1.81922C11.2062 1.71957 11.1216 1.58753 11.0798 1.43979C11.038 1.29205 11.0409 1.13524 11.0882 0.98916C11.1355 0.843083 11.225 0.714296 11.3454 0.619068C11.4234 0.555667 11.5136 0.508906 11.6103 0.481663C11.707 0.454421 11.8083 0.447275 11.908 0.460665C13.6682 0.651918 15.3101 1.43976 16.5606 2.69326C17.8112 3.94676 18.5951 5.59045 18.7823 7.35118C18.7939 7.45202 18.7855 7.55418 18.7576 7.65178C18.7297 7.74938 18.6828 7.84051 18.6196 7.91995C18.5564 7.99938 18.4781 8.06556 18.3892 8.11468C18.3004 8.1638 18.2027 8.1949 18.1019 8.20619C18.072 8.21012 18.0419 8.21193 18.0118 8.21159C17.8225 8.2107 17.6401 8.14009 17.4995 8.01326C17.3589 7.88642 17.2699 7.71225 17.2495 7.52398Z"
-                fill="white" />
-            </svg>
-            <p>(312) 803-3665</p>
-          </a>
-
-          <a href="" class="flex gap-2">
-            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M15.7263 18.5283H5.84735C4.50717 18.528 3.2218 17.9962 2.27321 17.0495C1.32463 16.1028 0.790266 14.8185 0.787354 13.4783L0.787354 5.57832C0.790266 4.23814 1.32463 2.95383 2.27321 2.00711C3.2218 1.0604 4.50717 0.528582 5.84735 0.52832L15.7263 0.52832C17.0682 0.530888 18.3548 1.06314 19.3063 2.00932C19.7771 2.47662 20.1504 3.03271 20.4046 3.64536C20.6588 4.258 20.7889 4.91502 20.7873 5.57832V13.4783C20.7844 14.8187 20.2499 16.1031 19.3011 17.0499C18.3523 17.9966 17.0667 18.5283 15.7263 18.5283ZM4.82135 5.77432C4.72179 5.77343 4.6231 5.79284 4.53129 5.83135C4.43948 5.86986 4.35648 5.92667 4.28735 5.99832C4.15694 6.12843 4.07794 6.30129 4.06489 6.48504C4.05185 6.6688 4.10564 6.85108 4.21635 6.99831L4.34735 7.12831L8.89735 10.6783C9.45166 11.1191 10.1391 11.3589 10.8473 11.3583C11.5576 11.3567 12.2469 11.1173 12.8053 10.6783L17.3173 7.06832L17.3973 6.98832C17.5139 6.84714 17.5767 6.66921 17.5745 6.48612C17.5723 6.30303 17.5053 6.12665 17.3853 5.98832C17.247 5.84014 17.0592 5.74767 16.8573 5.72832H16.8153C16.6233 5.72701 16.4379 5.79847 16.2963 5.92832L11.7873 9.52831C11.5062 9.76129 11.1525 9.88864 10.7873 9.88831C10.4226 9.88641 10.0696 9.75932 9.78735 9.52831L5.28735 5.92832C5.1527 5.82805 4.98923 5.77403 4.82135 5.77432Z"
-                fill="white" />
-            </svg>
-            <p>info@elbaheshlawfirm.com</p>
-          </a>
-
-          <div class="flex gap-5 mt-7">
-            <a href=""
-              class="size-10 border border-white rounded-full flex justify-center items-center hover:bg-white hover:text-primaryDark">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M6.58838 9.67773V13.5349H9.48124V20.2849H13.3384V13.5349H16.2312L17.1955 9.67773H13.3384V7.74916C13.3384 7.49342 13.44 7.24815 13.6208 7.06731C13.8017 6.88647 14.0469 6.78488 14.3027 6.78488H17.1955V2.92773H14.3027C13.0239 2.92773 11.7976 3.4357 10.8934 4.3399C9.98921 5.24409 9.48124 6.47044 9.48124 7.74916V9.67773H6.58838Z"
-                  fill="currentColor" />
-              </svg>
-            </a>
-            <a href=""
-              class="size-10 border border-white rounded-full flex justify-center items-center hover:bg-white hover:text-primaryDark">
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M9.66653 6.65291C8.01394 6.65291 6.6653 8.00154 6.6653 9.65413C6.6653 11.3067 8.01394 12.6553 9.66653 12.6553C11.3191 12.6553 12.6677 11.3067 12.6677 9.65413C12.6677 8.00154 11.3191 6.65291 9.66653 6.65291ZM18.6679 9.65413C18.6679 8.41131 18.6792 7.17975 18.6094 5.93919C18.5396 4.49824 18.2109 3.2194 17.1572 2.16571C16.1013 1.10977 14.8247 0.783301 13.3837 0.713505C12.1409 0.643709 10.9093 0.654967 9.66878 0.654967C8.42596 0.654967 7.1944 0.643709 5.95384 0.713505C4.51289 0.783301 3.23405 1.11202 2.18036 2.16571C1.12441 3.22165 0.797949 4.49824 0.728153 5.93919C0.658358 7.182 0.669615 8.41356 0.669615 9.65413C0.669615 10.8947 0.658358 12.1285 0.728153 13.3691C0.797949 14.81 1.12667 16.0889 2.18036 17.1425C3.2363 18.1985 4.51289 18.525 5.95384 18.5948C7.19665 18.6645 8.42821 18.6533 9.66878 18.6533C10.9116 18.6533 12.1432 18.6645 13.3837 18.5948C14.8247 18.525 16.1035 18.1962 17.1572 17.1425C18.2131 16.0866 18.5396 14.81 18.6094 13.3691C18.6814 12.1285 18.6679 10.8969 18.6679 9.65413V9.65413ZM9.66653 14.2719C7.1111 14.2719 5.04874 12.2096 5.04874 9.65413C5.04874 7.0987 7.1111 5.03634 9.66653 5.03634C12.222 5.03634 14.2843 7.0987 14.2843 9.65413C14.2843 12.2096 12.222 14.2719 9.66653 14.2719ZM14.4734 5.92568C13.8768 5.92568 13.395 5.44386 13.395 4.84722C13.395 4.25058 13.8768 3.76876 14.4734 3.76876C15.0701 3.76876 15.5519 4.25058 15.5519 4.84722C15.5521 4.9889 15.5243 5.12921 15.4702 5.26014C15.416 5.39106 15.3366 5.51002 15.2364 5.6102C15.1362 5.71038 15.0173 5.78981 14.8864 5.84395C14.7554 5.89808 14.6151 5.92586 14.4734 5.92568V5.92568Z"
-                  fill="currentColor" />
-              </svg>
-            </a>
-            <a href=""
-              class="size-10 border border-white rounded-full flex justify-center items-center hover:bg-white hover:text-primaryDark">
-              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_336_916)">
-                  <path
-                    d="M13.3084 0.0078125H15.8583L10.2874 6.37501L16.8412 15.0393H11.7096L7.69042 9.78446L3.09157 15.0393H0.540036L6.49872 8.2289L0.21167 0.0078125H5.47344L9.10645 4.81098L13.3084 0.0078125ZM12.4134 13.5131H13.8264L4.70572 1.45391H3.18945L12.4134 13.5131Z"
-                    fill="currentColor" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_336_916">
-                    <rect width="16.6295" height="15.0331" fill="white" transform="translate(0.211182 0.00683594)" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
+        <p class="text-justify text-xs text-[#F4F4F4] pt-0 pb-8 lg:py-8">
+          Attorney Advertising. This information is designed for general information only. The information presented
+          should not be construed to be formal legal advice nor the formation of a lawyer/client relationship. Past
+          results and testimonials are not a guarantee, warranty, or prediction of the outcome of your case, and should
+          not be construed as such. Past results cannot guarantee future performance. Any result in a single case is not
+          meant to create an expectation of similar results in future matters because each case involves many different
+          factors, therefore, results will differ on a case-by-case basis. By providing contact information, users
+          acknowledge and give explicit consent to be contacted via the methods of communication provided, including
+          SMS. Message and data rates may apply. Message frequency may vary. Reply STOP to opt out.</p>
+        <hr class="text-lightGray/50" />
+        <div class="flex flex-col-reverse lg:flex-row justify-between items-center pt-3 ">
+          <p class="py-3 text-center">© 2024 El-Bahesh Law Firm All rights are reserved.</p>
+          <div class="flex items-center space-x-8 py-3">
+            <a href="">Site Search</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
           </div>
         </div>
+
       </div>
-      <p class="text-center lg:w-4/5 mx-auto py-5">
-        The information on this website is for general information purposes only. Nothing on this site should be taken
-        as legal advice for any individual case or situation. This information is not intended to create, and receipt or
-        viewing does not constitute, an attorney-client relationship.
-      </p>
-      <hr class="text-lightGray/50" />
-      <p class="py-5 text-center text-sm">© 2024 El-Bahesh Law Firm All rights are reserved.</p>
+    </footer>
 
-    </div>
-  </footer>
-
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      document.documentElement.classList.add('scroll-smooth');
+      AOS.init();
+    </script>
 </body>
 
 </html>

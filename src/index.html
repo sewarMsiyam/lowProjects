@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="assets/css/output.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -74,13 +75,13 @@
               </button>
               <div x-show="open" @click.away="open = false"
                 class="absolute z-50 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
-                <a href="#"
+                <a href="signle-service.html"
                   class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   1</a>
-                <a href="#"
+                <a href="signle-service.html"
                   class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   2</a>
-                <a href="#"
+                <a href="signle-service.html"
                   class="block px-4 py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   3</a>
               </div>
@@ -188,11 +189,11 @@
               <div x-show="open" x-transition:enter="transition ease-out duration-200"
                 x-transition:enter-start="opacity-0 transform -translate-y-2"
                 x-transition:enter-end="opacity-100 transform translate-y-0" class="pl-4">
-                <a href="#"
+                <a  href="signle-service.html"
                   class="block py-2 text-neutralDark hover:text-primary transition duration-150 font-semibold">Area
                   1</a>
-                <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 2</a>
-                <a href="#" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 3</a>
+                <a  href="signle-service.html"class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 2</a>
+                <a  href="signle-service.html" class="block py-2 text-neutralDark hover:text-primary transition duration-150">Area 3</a>
               </div>
             </div>
             <a href="about-us.html"
@@ -258,7 +259,7 @@
     </div>
   </header> 
 
-  <main>
+  <main class="overflow-hidden">
 
     <section class="relative h-screen w-full">
       <div class="absolute inset-0 w-full h-full">
@@ -268,7 +269,7 @@
         <img src="assets/images/hero.png" alt="Business meeting" class="w-full h-full object-cover" />
       </div>
       <div class="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 md:px-8">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up"data-aos-duration="2000">
           <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 md:leading-normal  ">
             Guiding You Through Your <br class="hidden lg:block" />
             Immigration Journey With Confidence
@@ -296,11 +297,11 @@
               class="absolute left-0 w-[60%] h-[400px] lg:w-[40%] lg:h-[550px] bg-[#192644] rounded-[0_100px_100px_0] bg-[radial-gradient(circle,_#192644_0%,_#192644_100%)]">
             </div>
             <div
-              class=" rounded-3xl bg-white rotate-[5deg] p-2 lg:absolute w-full h-[300px] lg:w-[60%] more-xl:w-[590px] lg:h-[440px] lg:left-[-170px] more-xl:left-auto ">
-              <img src="assets/images/section1.png" class="rounded-3xl shadow w-full h-full object-cover" />
+              class=" rounded-3xl bg-white rotate-[5deg] p-2 lg:absolute w-full h-[300px] lg:w-[60%] more-xl:w-[590px] lg:h-[440px] lg:left-[-170px] more-xl:left-auto "  data-aos="fade-up-right">
+              <img src="assets/images/section1.png" class="rounded-3xl shadow w-full h-full object-cover"  />
             </div>
           </div>
-          <div>
+          <div  data-aos="fade-up-left">
             <span class="absolute w-[104px] h-[104px] right-0 top-0 bg-accent filter blur-[150px]"></span>
             <span class="inline-block bg-accent/10 text-accent p-2 px-6 rounded-full text-sm">Why Choose us</span>
             <h3 class="text-3xl font-bold mt-5 mb-10">Why Partner with Us?</h3>
@@ -367,12 +368,12 @@
       <span class="absolute -z-10  w-[104px] h-[104px] left-0 top-0 bg-accent filter blur-[150px]"></span>
       <span class="absolute -z-10 w-[104px] h-[104px] right-0 top-2/4 bg-accent filter blur-[150px]"></span>
       <div class="container">
-        <div class="text-center">
+        <div class="text-center" data-aos="fade-up"data-aos-duration="2000">
           <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Services</span>
           <h3 class="text-3xl font-bold mt-5 mb-10">Services Overview</h3>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
-          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5">
+          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5" data-aos="fade-up">
             <img src="assets/images/section1.png" class="md:w-[236px] md:h-[236px] rounded-[40px] object-cover"
               alt="" />
             <div class="space-y-3 text-center md:text-start">
@@ -395,7 +396,7 @@
               </a>
             </div>
           </div>
-          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5">
+          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5" data-aos="fade-up">
             <img src="assets/images/section1.png" class="md:w-[236px] md:h-[236px] rounded-[40px] object-cover"
               alt="" />
             <div class="space-y-3 text-center md:text-start">
@@ -418,7 +419,7 @@
               </a>
             </div>
           </div>
-          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5">
+          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5" data-aos="fade-up">
             <img src="assets/images/section1.png" class="md:w-[236px] md:h-[236px] rounded-[40px] object-cover"
               alt="" />
             <div class="space-y-3 text-center md:text-start">
@@ -441,7 +442,7 @@
               </a>
             </div>
           </div>
-          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5">
+          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5" data-aos="fade-up">
             <img src="assets/images/section1.png" class="md:w-[236px] md:h-[236px] rounded-[40px] object-cover"
               alt="" />
             <div class="space-y-3 text-center md:text-start">
@@ -464,7 +465,7 @@
               </a>
             </div>
           </div>
-          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5">
+          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5" data-aos="fade-up">
             <img src="assets/images/section1.png" class="md:w-[236px] md:h-[236px] rounded-[40px] object-cover"
               alt="" />
             <div class="space-y-3 text-center md:text-start">
@@ -487,7 +488,7 @@
               </a>
             </div>
           </div>
-          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5">
+          <div class="bg-primaryDark/5 rounded-[40px] flex flex-col md:flex-row items-center gap-5 p-5" data-aos="fade-up">
             <img src="assets/images/section1.png" class="md:w-[236px] md:h-[236px] rounded-[40px] object-cover"
               alt="" />
             <div class="space-y-3 text-center md:text-start">
@@ -514,8 +515,8 @@
       </div>
     </section>
 
-    <section class="relative mt-20">
-      <div class="container">
+    <section class="relative mt-20" id="FAQs">
+      <div class="container"  data-aos="fade-up"data-aos-duration="2000">
         <div class="text-center mb-10">
           <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">FAQs</span>
           <h3 class="text-3xl font-bold mt-5">Frequently Asked Questions</h3>
@@ -584,15 +585,13 @@
       </div>
     </section>
 
-
-
     <section class="relative mt-20">
-      <div class="container">
-        <div class="text-center">
+      <div class="container" data-aos="fade-up"data-aos-duration="2000">
+        <div class="text-center" >
           <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Contact us</span>
           <h3 class="text-3xl font-bold mt-5 mb-10">Have a Question?</h3>
         </div>
-        <div class="bg-[#E7E8E9] p-20 relative " style=" padding: 60px; background: #E7E8E9; border-radius: 12px; ">
+        <div class="bg-[#E7E8E9] p-8 lg:p-16 relative rounded-xl">
           <form class="relative z-10 w-full lg:w-[65%] xl:w-[60%] mx-auto space-y-6">
             <div class="flex flex-col lg:flex-row w-full gap-5">
               <div class="grid w-full">
@@ -656,7 +655,7 @@
             </div>
           </form>
 
-          <div class="absolute bottom-0 right-0 ">
+          <div class="absolute bottom-0 right-0 opacity-10 lg:opacity-90">
             <svg width="205" height="501" viewBox="0 0 205 501" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M0.237793 68.5654L8.54657 77.7997L11.9516 86.4953V86.5299L8.60879 100.24L14.0927 117.362L20.1431 143.718L20.7094 169.964L28.3483 217.261L20.0602 239.729L27.3054 278.186L58.3927 367.456L38.2595 488.262L48.8338 494.506L45.9606 575.301L40.6286 651.711L184.234 652.892L177.617 558.967L185.132 545.112L181.982 514.736L187.494 505.536L178.867 445.357L189.87 423.214L211.35 405.174L220.508 396.741L233.12 375.923L230.958 364.375L239.205 345.679L235.973 340.768L202.979 325.407L189.276 345.679L170.061 330.829L157.968 292.407L141.391 280.755L134.36 259.489L129.159 241.117L134.139 222.752L135.963 219.237L166.656 212.634L135.458 209.118L134.65 206.183L162.657 188.667L129.256 197.57L126.597 193.903L140.59 165.972L116.389 189.613L109.524 188.149L103.598 149.989L99.0875 188.115L91.9251 190.131L65.2719 165.129L80.5427 194.124L78.0632 198.274L46.5545 185.552L73.9744 205.416L73.4081 208.683L42.4036 205.879L73.1871 217.814L82.525 239.929L78.8506 255.898L71.5364 252.016L61.0518 233.499L62.3434 218.415L56.8595 215.859L52.3493 199.953L51.5205 188.149L36.3325 125.491L35.5935 98.0365L31.5945 86.6266L36.4361 78.3937L46.9068 68.3444V61.7484L30.9176 50.8909L32.4233 44.44L37.0923 37.2501L38.1835 26.22L34.1914 18.2427L32.223 23.4435L25.3301 0.485352L16.6482 19.2441L12.2003 11.3428L8.89882 26.7104L10.7913 39.1771L13.1327 42.8515L17.2423 50.8219L0.237793 61.5274V68.5654Z"
@@ -669,15 +668,14 @@
 
 
     <section class="relative mt-20">
-      <div class="text-center">
+      <div class="text-center" data-aos="fade-up"data-aos-duration="1500">
         <span class="inline-block bg-accent/10 text-accent p-2 px-10 rounded-full text-sm">Blog</span>
         <h3 class="text-3xl font-bold mt-5 mb-10">News & Articles</h3>
       </div>
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-
-          <a href="blog-details.html" class="space-y-3 group">
+          <a href="blog-details.html" class="space-y-3 group" data-aos="fade-up">
             <div class="relative">
               <img src="assets/images/section1.png" class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover"
                 alt="" />
@@ -702,7 +700,7 @@
           </a>
 
 
-          <a href="blog-details.html" class="space-y-3 group">
+          <a href="blog-details.html" class="space-y-3 group" data-aos="fade-up">
             <div class="relative">
               <img src="assets/images/section1.png" class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover"
                 alt="" />
@@ -726,7 +724,7 @@
             </h4>
           </a>
 
-          <a href="blog-details.html" class="space-y-3 group">
+          <a href="blog-details.html" class="space-y-3 group" data-aos="fade-up">
             <div class="relative">
               <img src="assets/images/section1.png" class="md:w-[358px] md:h-[236px] rounded-[40px] object-cover"
                 alt="" />
@@ -754,33 +752,19 @@
     </section>
   </main>
 
-  <div x-data="scrollToTop()" 
-  @scroll.window="handleScroll()" 
-  class="fixed bottom-8 right-8 z-50">
- <button 
-     x-show="showButton" 
-     @click="scrollToTop()"
-     x-transition:enter="transition ease-out duration-300"
-     x-transition:enter-start="opacity-0 translate-y-8"
-     x-transition:enter-end="opacity-100 translate-y-0"
-     x-transition:leave="transition ease-in duration-300"
-     x-transition:leave-start="opacity-100 translate-y-0"
-     x-transition:leave-end="opacity-0 translate-y-8"
-     class="bg-accent hover:bg-accent/95 text-white rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300 ease-in-out"
-     aria-label="Scroll to top">
-     <svg xmlns="http://www.w3.org/2000/svg" 
-          class="h-6 w-6" 
-          fill="none" 
-          viewBox="0 0 24 24" 
-          stroke="currentColor">
-         <path stroke-linecap="round" 
-               stroke-linejoin="round" 
-               stroke-width="2" 
-               d="M5 10l7-7m0 0l7 7m-7-7v18" />
-     </svg>
- </button>
-</div>
-
+<button 
+    x-data="{ showButton: false }"
+    @scroll.window="showButton = window.pageYOffset > 300"
+    @click="window.scrollTo({ top: 0 })"
+    x-show="showButton"
+    x-transition.duration.300ms
+    class="fixed bottom-8 right-8 z-50 bg-accent hover:accent/95 text-white rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300 ease-in-out"
+    aria-label="Scroll to top"
+>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+</button>
 
   <footer class="bg-primaryDark text-white mt-32">
     <span>
@@ -813,10 +797,10 @@
         </div>
         <div class="flex flex-col gap-4 text-[#F4F4F4] lg:w-2/4 lg:mx-auto">
           <p class="font-bold text-white">Quick Links</p>
-          <a href="#">Practice Area</a>
+          <a href="">Practice Area</a>
           <a href="about-us.html">About us</a>
           <a href="contactus.html">Contact us</a>
-          <a href="#">Faqs</a>
+          <a href="index.html#FAQs">Faqs</a>
         </div>
         <div class="flex flex-col gap-5 text-white">
           <h3 class="font-bold text-white">Contact Information</h3>
@@ -838,7 +822,7 @@
             <p>(312) 803-3665</p>
           </a>
 
-          <a href="" class="flex gap-2">
+          <a href="mo" class="flex gap-2">
             <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M15.7263 18.5283H5.84735C4.50717 18.528 3.2218 17.9962 2.27321 17.0495C1.32463 16.1028 0.790266 14.8185 0.787354 13.4783L0.787354 5.57832C0.790266 4.23814 1.32463 2.95383 2.27321 2.00711C3.2218 1.0604 4.50717 0.528582 5.84735 0.52832L15.7263 0.52832C17.0682 0.530888 18.3548 1.06314 19.3063 2.00932C19.7771 2.47662 20.1504 3.03271 20.4046 3.64536C20.6588 4.258 20.7889 4.91502 20.7873 5.57832V13.4783C20.7844 14.8187 20.2499 16.1031 19.3011 17.0499C18.3523 17.9966 17.0667 18.5283 15.7263 18.5283ZM4.82135 5.77432C4.72179 5.77343 4.6231 5.79284 4.53129 5.83135C4.43948 5.86986 4.35648 5.92667 4.28735 5.99832C4.15694 6.12843 4.07794 6.30129 4.06489 6.48504C4.05185 6.6688 4.10564 6.85108 4.21635 6.99831L4.34735 7.12831L8.89735 10.6783C9.45166 11.1191 10.1391 11.3589 10.8473 11.3583C11.5576 11.3567 12.2469 11.1173 12.8053 10.6783L17.3173 7.06832L17.3973 6.98832C17.5139 6.84714 17.5767 6.66921 17.5745 6.48612C17.5723 6.30303 17.5053 6.12665 17.3853 5.98832C17.247 5.84014 17.0592 5.74767 16.8573 5.72832H16.8153C16.6233 5.72701 16.4379 5.79847 16.2963 5.92832L11.7873 9.52831C11.5062 9.76129 11.1525 9.88864 10.7873 9.88831C10.4226 9.88641 10.0696 9.75932 9.78735 9.52831L5.28735 5.92832C5.1527 5.82805 4.98923 5.77403 4.82135 5.77432Z"
@@ -882,14 +866,14 @@
           </div>
         </div>
       </div>
-      <p class="text-justify text-xs text-[#F4F4F4] py-8">
+      <p class="text-justify text-xs text-[#F4F4F4] pt-0 pb-8 lg:py-8">
         Attorney Advertising. This information is designed for general information only. The information presented should not be construed to be formal legal advice nor the formation of a lawyer/client relationship. Past results and testimonials are not a guarantee, warranty, or prediction of the outcome of your case, and should not be construed as such. Past results cannot guarantee future performance. Any result in a single case is not meant to create an expectation of similar results in future matters because each case involves many different factors, therefore, results will differ on a case-by-case basis. By providing contact information, users acknowledge and give explicit consent to be contacted via the methods of communication provided, including SMS. Message and data rates may apply. Message frequency may vary. Reply STOP to opt out.</p>
       <hr class="text-lightGray/50" />
-      <div class="flex justify-between items-center">
-        <p class="py-5 text-center text-sm">© 2024 El-Bahesh Law Firm All rights are reserved.</p>
-        <div class="flex items-center space-x-8">
-          <a>Site Search</a>
-          <a>Privacy Policy</a>
+      <div class="flex flex-col-reverse lg:flex-row justify-between items-center pt-3 ">
+        <p class="py-3 text-center">© 2024 El-Bahesh Law Firm All rights are reserved.</p>
+        <div class="flex items-center space-x-8 py-3">
+          <a href="">Site Search</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
         </div>
       </div>
 
@@ -897,20 +881,10 @@
   </footer>
 
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.documentElement.classList.add('scroll-smooth');
-    
-    function scrollToTop() {
-        return {
-            showButton: false,
-            handleScroll() {
-                this.showButton = window.pageYOffset > 300;
-            },
-            scrollToTop() {
-                window.scrollTo({ top: 0 });
-            }
-        }
-    }
+     AOS.init();
 </script>
 </body>
 
