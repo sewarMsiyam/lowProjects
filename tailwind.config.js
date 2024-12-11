@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js}",    "./node_modules/@ckeditor/**/*.{js,jsx,ts,tsx}"  ],
+  
   theme: {
     container: {
       center: true
@@ -48,34 +49,8 @@ module.exports = {
       },
       listStyleImage: {
         checkmark: 'url("/src/assets/images/checkmark.svg")'
-      }
-      // fontSize: {
-      //   'xs': '.75rem',  // 12px
-      //   'sm': '.875rem', // 14px
-      //   'base': '1rem',  // 16px
-      //   'lg': '1.125rem', // 18px
-      //   'xl': '1.25rem',  // 20px
-      //   '2xl': '1.5rem',  // 24px
-      //   '3xl': '1.875rem', // 30px
-      //   '4xl': '2.25rem', // 36px
-      //   '5xl': '3rem',    // 48px
-      //   '6xl': '4rem',    // 64px
-      // },
-      // spacing: {
-      //   '1': '4px',
-      //   '2': '8px',
-      //   '3': '12px',
-      //   '4': '16px',
-      //   '5': '20px',
-      //   '6': '24px',
-      //   '8': '32px',
-      //   '10': '40px',
-      //   '12': '48px',
-      //   '16': '64px',
-      //   '20': '80px',
-      //   '24': '96px',
-      //   '32': '128px',
-      // },
+      },
+     
     },
   },
   plugins: [],
